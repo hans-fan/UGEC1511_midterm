@@ -3,32 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ECON1010 — Trap & Scenario MCQs</title>
+<title>ECON1010 — 300 Scenario Trap MCQs</title>
 <style>
   :root{
-    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --accent:#7c3aed;
+    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --accent:#c2410c;
     --good:#15803d; --goodbg:#dcfce7; --bad:#b91c1c; --badbg:#fee2e2;
-    --trap:#b45309; --trapbg:#fef3c7; --scen:#0369a1; --scenbg:#e0f2fe;
   }
   *{box-sizing:border-box}
   body{
     margin:0; background:#f1f5f9; color:var(--ink); line-height:1.55;
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"PingFang HK","Microsoft JhengHei",sans-serif;
   }
-  header{background:linear-gradient(135deg,#1e1b4b,#4c1d95 60%,#7c3aed); color:#fff; padding:26px 18px 22px; text-align:center}
-  header h1{margin:0 0 6px; font-size:1.45rem}
-  header p{margin:0; opacity:.9; font-size:.9rem}
+  header{background:linear-gradient(135deg,#431407,#7c2d12 55%,#c2410c); color:#fff; padding:26px 18px 22px; text-align:center}
+  header h1{margin:0 0 6px; font-size:1.4rem}
+  header p{margin:0; opacity:.9; font-size:.88rem}
   .bar{
     position:sticky; top:0; z-index:30; background:#fff; border-bottom:1px solid var(--line);
-    padding:10px 12px; display:flex; flex-wrap:wrap; gap:8px; align-items:center; justify-content:center;
+    padding:9px 12px; display:flex; flex-wrap:wrap; gap:8px; align-items:center; justify-content:center;
     box-shadow:0 2px 10px rgba(15,23,42,.07);
   }
-  .stat{font-size:.8rem; background:#ede9fe; color:#4c1d95; padding:5px 10px; border-radius:999px; font-weight:700}
-  .stat b{color:#7c3aed}
+  .stat{font-size:.78rem; background:#ffedd5; color:#7c2d12; padding:5px 10px; border-radius:999px; font-weight:700}
+  .stat b{color:var(--accent)}
   .filters{display:flex; gap:5px; flex-wrap:wrap}
   .filters button, .reset{
     border:1px solid var(--line); background:#fff; color:#334155; padding:6px 11px;
-    border-radius:999px; font-size:.8rem; cursor:pointer; font-weight:700; transition:.15s;
+    border-radius:999px; font-size:.78rem; cursor:pointer; font-weight:700; transition:.15s;
   }
   .filters button:hover{background:#f8fafc}
   .filters button.active{background:var(--accent); color:#fff; border-color:var(--accent)}
@@ -36,31 +35,30 @@
   .progresswrap{height:6px; background:#e2e8f0}
   .progress{height:6px; background:var(--accent); width:0%; transition:width .25s}
   main{max-width:880px; margin:0 auto; padding:20px 13px 80px}
-  .qcard{background:#fff; border:1px solid var(--line); border-radius:14px; padding:15px 17px; margin-bottom:13px; box-shadow:0 1px 3px rgba(15,23,42,.05)}
+  .qcard{background:#fff; border:1px solid var(--line); border-radius:14px; padding:15px 17px; margin-bottom:12px; box-shadow:0 1px 3px rgba(15,23,42,.05)}
   .qhead{display:flex; gap:8px; align-items:flex-start; margin-bottom:11px}
-  .qnum{flex:0 0 auto; background:var(--accent); color:#fff; font-size:.74rem; font-weight:800; padding:3px 8px; border-radius:7px; margin-top:2px}
-  .qtag{flex:0 0 auto; font-size:.66rem; font-weight:800; padding:3px 7px; border-radius:7px; margin-top:3px; letter-spacing:.5px}
-  .qtag.L1{background:#ede9fe; color:#5b21b6}
+  .qnum{flex:0 0 auto; background:var(--accent); color:#fff; font-size:.72rem; font-weight:800; padding:3px 8px; border-radius:7px; margin-top:2px}
+  .qtag{flex:0 0 auto; font-size:.64rem; font-weight:800; padding:3px 7px; border-radius:7px; margin-top:3px; letter-spacing:.5px}
+  .qtag.L1{background:#ffedd5; color:#9a3412}
   .qtag.L2{background:#e0f2fe; color:#075985}
   .qtag.L3{background:#dcfce7; color:#166534}
-  .qtag.T{background:var(--trapbg); color:var(--trap)}
-  .qtext{font-size:.98rem; font-weight:600}
+  .qtext{font-size:.97rem; font-weight:600}
   .opts{display:grid; gap:7px}
   .opt{
     display:flex; gap:9px; align-items:flex-start; text-align:left; width:100%;
     background:#fff; border:1.5px solid var(--line); border-radius:10px;
-    padding:9px 11px; cursor:pointer; font-size:.92rem; color:#1e293b; transition:.12s;
+    padding:9px 11px; cursor:pointer; font-size:.91rem; color:#1e293b; transition:.12s;
   }
-  .opt:hover:not(.done){border-color:#a78bfa; background:#faf5ff}
-  .opt .letter{flex:0 0 auto; font-weight:800; color:#475569; font-size:.82rem; width:17px; text-align:center; margin-top:1px}
+  .opt:hover:not(.done){border-color:#fb923c; background:#fff7ed}
+  .opt .letter{flex:0 0 auto; font-weight:800; color:#475569; font-size:.8rem; width:17px; text-align:center; margin-top:1px}
   .opt.correct{background:var(--goodbg); border-color:var(--good)}
   .opt.correct .letter{color:var(--good)}
   .opt.wrong{background:var(--badbg); border-color:var(--bad)}
   .opt.wrong .letter{color:var(--bad)}
   .opt.done{cursor:default}
-  .explain{margin-top:10px; padding:10px 12px; background:#f8fafc; border-left:4px solid var(--accent); border-radius:0 8px 8px 0; font-size:.86rem; color:#334155; display:none}
+  .explain{margin-top:10px; padding:10px 12px; background:#f8fafc; border-left:4px solid var(--accent); border-radius:0 8px 8px 0; font-size:.85rem; color:#334155; display:none}
   .explain.show{display:block}
-  .explain b{color:#7c3aed}
+  .explain b{color:var(--accent)}
   .hidden{display:none!important}
   footer{text-align:center; font-size:.8rem; color:var(--muted); padding:0 14px 40px}
 </style>
@@ -68,8 +66,8 @@
 <body>
 
 <header>
-  <h1>ECON1010 · Trap &amp; Scenario MCQs</h1>
-  <p>160 questions built around the distinctions that actually fool students</p>
+  <h1>ECON1010 · 300 Scenario Trap MCQs</h1>
+  <p>Every question is a real-life situation. The wrong answers are designed to look right.</p>
 </header>
 
 <div class="bar">
@@ -81,1004 +79,342 @@
     <button data-f="L1">L1 Prices</button>
     <button data-f="L2">L2 Labour</button>
     <button data-f="L3">L3 GDP</button>
-    <button data-f="T">Traps</button>
   </div>
   <button class="reset" id="resetBtn">Reset</button>
 </div>
 <div class="progresswrap"><div class="progress" id="progress"></div></div>
 
 <main id="quiz"></main>
-<footer>Answer letters are spread across A–D — never assume a pattern.</footer>
+<footer>Correct answers are spread across A–D. Read every option before clicking.</footer>
 
 <script>
-/* t = topic tag, k = kind (S scenario / T trap / blank)
-   a = index of correct option. */
 const QUESTIONS = [
 
-/* ================= L2: CLASSIFICATION SCENARIOS ================= */
-{t:"L2",k:"S",q:"Kenji worked 22 hours last week at a café. He wanted full-time hours, the café had none, he checked job boards twice in the past month, and he could start more work immediately. Which is correct?",
-o:["He is unemployed because he wants more hours",
-   "He is employed but not underemployed because he already has a job",
-   "He is employed and underemployed, and he remains in the labour force",
-   "He is outside the labour force because he is not fully utilised"],a:2,
-e:"Underemployed = employed + involuntarily under 35 hours + (searched in past 30 days OR available in past 7 days). He satisfies all three. Underemployed people stay employed and stay in the labour force."},
-
-{t:"L2",k:"S",q:"Mei worked 22 hours last week at a café. She chose those hours to have time for her hobby, did not look for more work, and was not available for more work. She is:",
-o:["Underemployed",
-   "Unemployed",
-   "Employed but not underemployed",
-   "Outside the labour force"],a:2,
-e:"Trap: fewer than 35 hours is not enough on its own. The shortfall must be involuntary AND she must have sought or been available for more work. She is simply employed."},
-
-{t:"L2",k:"S",q:"Sam worked 30 hours involuntarily last week but neither sought extra work nor was available for extra work (he was caring for a sick parent). He is:",
-o:["Underemployed",
-   "Employed but not underemployed",
-   "Unemployed",
-   "Outside the labour force"],a:1,
-e:"The 'seeking or available' condition fails, so the underemployment label does not apply. He is still employed and in the labour force."},
-
-{t:"L2",k:"S",q:"Priya has no job, is available to work, and stopped applying three months ago because she believes no vacancies exist. Under Hong Kong definitions she is:",
-o:["Outside the labour force, since she is not searching",
-   "Unemployed and counted in the labour force",
-   "Underemployed",
-   "Employed"],a:1,
-e:"This is the classic trap. Hong Kong explicitly includes discouraged workers in the unemployed population. She is unemployed and inside the labour force."},
-
-{t:"L2",k:"S",q:"Daniel has no job and is available. He has not searched because he has already arranged to start a new job next month. He is:",
-o:["Outside the labour force",
-   "Employed",
-   "Unemployed under Hong Kong definitions",
-   "Underemployed"],a:2,
-e:"One of the Hong Kong exceptions: jobless people available but not searching because they have arranged to start a job or business later are counted as unemployed."},
-
-{t:"L2",k:"S",q:"Aisha is jobless. She had been actively searching but was in hospital during the enumeration week and therefore temporarily unavailable. She is:",
-o:["Outside the labour force because she was unavailable",
-   "Unemployed under Hong Kong definitions",
-   "Employed",
-   "Underemployed"],a:1,
-e:"Another Hong Kong exception: jobless people who sought work but were temporarily unavailable because of sickness are still unemployed."},
-
-{t:"L2",k:"S",q:"Mr Chan is 68, retired last year, does not want work, and has not looked for any. He is:",
-o:["Unemployed",
-   "Underemployed",
-   "Outside the labour force",
-   "Employed"],a:2,
-e:"He is neither employed nor unemployed, so he sits outside the labour force and appears only in the population denominator."},
-
-{t:"L2",k:"S",q:"Lily is a full-time student who works 12 hours a week at a bookshop for pay. She is:",
-o:["Outside the labour force because she is a student",
-   "Employed and in the labour force",
-   "Underemployed",
-   "Unemployed"],a:1,
-e:"Trap: labels such as 'student' or 'retired' are irrelevant. Anyone doing paid work is employed and therefore in the labour force."},
-
-{t:"L2",k:"S",q:"A 14-year-old works weekends at the family shop. In Hong Kong labour force statistics he is:",
-o:["Employed",
-   "Unemployed",
-   "Outside the labour force, because the reference population is aged 15 and over",
-   "Underemployed"],a:2,
-e:"The labour force is defined over the land-based non-institutional population aged 15 and over. Below 15, he is outside the frame entirely."},
-
-{t:"L2",k:"S",q:"A person serving a prison sentence is:",
-o:["Counted in the labour force",
-   "Excluded, because the reference population is land-based and non-institutional",
-   "Counted as unemployed",
-   "Counted as underemployed"],a:1,
-e:"'Non-institutional' excludes people living in institutions. They are not in the population base at all."},
-
-{t:"L2",k:"S",q:"Tom worked 20 hours last week involuntarily and looked for extra work during the past 30 days. Which statement is FALSE?",
-o:["He is underemployed",
-   "He is counted as employed",
-   "He is in the labour force",
-   "He is counted as unemployed"],a:3,
-e:"He is employed, underemployed, and in the labour force — but not unemployed. Underemployment and unemployment are mutually exclusive categories."},
-
-{t:"L2",k:"S",q:"Using Tom's case again: his situation raises the underemployment rate, while the unemployment rate:",
-o:["Also rises",
-   "Falls",
-   "Is not directly affected, because he is not unemployed",
-   "Becomes zero"],a:2,
-e:"Underemployment and unemployment use different numerators. Someone moving into underemployment from outside the labour force raises employment, not unemployment."},
-
-{t:"L2",k:"S",q:"A worker loses a full-time job and takes a 15-hour part-time job while continuing to search for full-time work. Compared with before:",
-o:["The unemployment rate falls and the underemployment rate may rise",
-   "The unemployment rate rises",
-   "Both rates fall",
-   "The participation rate rises"],a:0,
-e:"He moves from unemployed to employed (unemployment falls) but is involuntarily under 35 hours and seeking more (underemployment may rise). Participation is unchanged."},
-
-{t:"L2",k:"S",q:"Forty unemployed people stop searching because they believe no jobs exist. Under Hong Kong definitions:",
-o:["They leave the labour force and the unemployment rate falls",
-   "They remain unemployed, so the unemployment rate is unchanged by this alone",
-   "They become employed",
-   "They become underemployed"],a:1,
-e:"Trap: in many textbooks discouraged workers exit the labour force. In Hong Kong they are already counted as unemployed, so nothing changes here."},
-
-{t:"L2",k:"S",q:"Which person is definitely NOT in the labour force?",
-o:["A discouraged worker who is available for work and stopped searching",
-   "A jobless person available for work who expects to return to their original job",
-   "A person who wants work but is not available because of full-time childcare",
-   "A person temporarily absent from their job on paid holiday"],a:2,
-e:"A, B and D are all inside the labour force (A and B as unemployed, D as employed). C fails the availability test, so she is outside the labour force."},
-
-{t:"L2",k:"S",q:"A person is jobless, available for work, has not searched, and expects to return to their original job. They are:",
-o:["Outside the labour force",
-   "Unemployed under Hong Kong definitions",
-   "Employed",
-   "Underemployed"],a:1,
-e:"Explicit Hong Kong exception: available but not searching because they expect to return to their original job counts as unemployed."},
-
-{t:"L2",k:"T",q:"Underemployment requires working under 35 hours in the 7 days before enumeration AND:",
-o:["Seeking additional work in the past 30 days only",
-   "Being available for additional work in the past 7 days only",
-   "Either seeking additional work in the past 30 days OR being available for additional work in the past 7 days",
-   "Both seeking in the past 30 days AND being available in the past 7 days"],a:2,
-e:"The rule is an OR, not an AND. Students who memorise it as 'must do both' get this wrong."},
-
-{t:"L2",k:"T",q:"A worker voluntarily works 40 hours but wants to work 50. Under the definition he is:",
-o:["Underemployed",
-   "Unemployed",
-   "Employed and not underemployed",
-   "Outside the labour force"],a:2,
-e:"Two traps: he exceeds the 35-hour threshold, and the shortfall is not involuntary. Underemployment does not cover people already at or above 35 hours."},
-
-{t:"L2",k:"S",q:"Which person is underemployed?",
-o:["A part-time worker who chose part-time hours to study",
-   "A worker involuntarily at 20 hours who neither searched nor was available for more work",
-   "A worker involuntarily at 20 hours who searched for more work last month",
-   "A worker at 40 hours who wants 50"],a:2,
-e:"Only C meets all conditions: under 35 hours, involuntary, and searched in the past 30 days."},
-
-{t:"L2",k:"T",q:"A worker involuntarily works exactly 35 hours and wants more. He is:",
-o:["Underemployed",
-   "Employed and not underemployed, because the threshold is 'less than 35 hours'",
-   "Unemployed",
-   "Outside the labour force"],a:1,
-e:"The rule says less than 35 hours. Exactly 35 does not qualify."},
-
-{t:"L2",k:"S",q:"A worker involuntarily works 34 hours and is available for more work. He is:",
-o:["Underemployed",
-   "Not underemployed because 34 is close to 35",
-   "Unemployed",
-   "Outside the labour force"],a:0,
-e:"34 is below 35, and availability satisfies the OR condition. He is underemployed."},
-
-{t:"L2",k:"S",q:"Which change directly alters the participation rate?",
-o:["An unemployed person finds a job",
-   "An employed person becomes underemployed",
-   "A person outside the labour force starts actively looking for work",
-   "An underemployed person works more hours"],a:2,
-e:"A and B keep the labour force constant; D changes hours, not membership. Only C changes the numerator of the participation rate."},
-
-{t:"L2",k:"S",q:"An unemployed person gives up looking and becomes unavailable for work (e.g. returns to full-time study). The labour force:",
-o:["Rises",
-   "Falls, so the participation rate falls",
-   "Is unchanged",
-   "Doubles"],a:1,
-e:"They move from unemployed to outside the labour force, shrinking both the labour force and the participation rate."},
-
-{t:"L2",k:"S",q:"A person outside the labour force begins actively searching for work. The unemployment rate:",
-o:["Necessarily falls",
-   "May rise, because they enter the labour force as unemployed",
-   "Is unchanged",
-   "Becomes zero"],a:1,
-e:"Trap: joining the labour force as unemployed increases both the numerator and the denominator, and the rate can rise. It certainly does not automatically fall."},
-
-{t:"L2",k:"T",q:"Employed = 1,425, unemployed = 75, underemployed = 45. The underemployment rate is:",
-o:["45 / 1,500 = 3%",
-   "45 / 1,425 = 3.16%",
-   "45 / 2,400",
-   "75 / 1,500"],a:0,
-e:"The denominator is the labour force (1,500), not the employed, and not the whole population."},
-
-{t:"L2",k:"S",q:"Using the same data, an underemployed worker moves to a full-time job (40 hours). This makes:",
-o:["The underemployment rate fall, with the labour force unchanged",
-   "The unemployment rate fall",
-   "The participation rate rise",
-   "Employment fall"],a:0,
-e:"He stays employed and stays in the labour force; only his underemployment status changes."},
-
-{t:"L2",k:"T",q:"Which statement about underemployed people is TRUE?",
-o:["They are excluded from the labour force",
-   "They are counted as unemployed",
-   "They are counted as employed and remain in the labour force",
-   "They are outside the labour force"],a:2,
-e:"Underemployment is a subset of employment. This is the single most common confusion in the topic."},
-
-{t:"L2",k:"T",q:"Which statement about the Hong Kong labour force is FALSE?",
-o:["It includes employed persons",
-   "It includes unemployed persons",
-   "It includes discouraged workers",
-   "It includes people aged 15+ who are neither available for work nor seeking work"],a:3,
-e:"Option D describes people outside the labour force. They appear only in the population denominator."},
-
-{t:"L2",k:"S",q:"Which person is classified as unemployed rather than outside the labour force?",
-o:["A person who wants a job but is unavailable because of full-time care duties",
-   "A jobless person available for work who has arranged to start a business next month",
-   "A retiree who does not want a job",
-   "A full-time student not looking for work"],a:1,
-e:"The arranged-start exception puts B in the unemployed population. The others fail the availability or search tests."},
-
-{t:"L2",k:"T",q:"Labour force = 2,000, employed = 1,850, underemployed = 60, population aged 15+ = 3,200. Which triple is correct?",
-o:["Unemployment 7.5%, underemployment 3%, participation 62.5%",
-   "Unemployment 8.1%, underemployment 3.24%, participation 60%",
-   "Unemployment 7.5%, underemployment 3.24%, participation 57.8%",
-   "Unemployment 5%, underemployment 3%, participation 62.5%"],a:0,
-e:"Unemployed = 150, so 150/2,000 = 7.5%; 60/2,000 = 3%; 2,000/3,200 = 62.5%. Each rate uses a different denominator."},
-
-{t:"L2",k:"S",q:"Fifty underemployed workers move into full-time jobs. The labour force:",
-o:["Falls",
-   "Is unchanged",
-   "Rises",
-   "Doubles"],a:1,
-e:"They remain employed throughout, so the labour force does not move. Only the underemployment numerator falls."},
-
-{t:"L2",k:"S",q:"Twenty people outside the labour force start searching for work. The labour force and unemployment:",
-o:["Both rise",
-   "The labour force is unchanged",
-   "Unemployment falls",
-   "Participation falls"],a:0,
-e:"They enter the labour force as unemployed, so both the labour force and unemployment rise."},
-
-{t:"L2",k:"T",q:"Which person is NOT in the labour force?",
-o:["A part-time worker",
-   "An unemployed person actively searching",
-   "A discouraged worker who is available for work",
-   "A person neither available for work nor seeking work"],a:3,
-e:"A, B and C are all inside the labour force under Hong Kong definitions."},
-
-{t:"L2",k:"S",q:"A worker on paid holiday from her job during the survey week is:",
-o:["Unemployed",
-   "Employed",
-   "Outside the labour force",
-   "Underemployed"],a:1,
-e:"Temporary absence from an existing job is employment, not unemployment. The unemployed category is for people with no job."},
-
-{t:"L2",k:"T",q:"Which does NOT directly change the unemployment rate?",
-o:["An unemployed person finding a job",
-   "An employed person becoming underemployed",
-   "An unemployed person leaving the labour force",
-   "A person outside the labour force starting to search"],a:1,
-e:"Underemployment involves people who are already employed, so the unemployment numerator and denominator are untouched."},
-
-{t:"L2",k:"S",q:"Which pair are BOTH inside the labour force?",
-o:["A retiree and a discouraged worker",
-   "A discouraged worker and a part-time worker",
-   "A retiree and a part-time worker",
-   "A full-time student not seeking work and a discouraged worker"],a:1,
-e:"The discouraged worker is unemployed in Hong Kong, and the part-time worker is employed. Both are inside."},
-
-/* ================= L2: OUTPUT GAPS / PHILLIPS ================= */
-{t:"L2",k:"T",q:"Potential output is defined using capital and labour at:",
-o:["Maximum feasible rates",
-   "Normal rates",
-   "Zero unemployment",
-   "Their current actual rates"],a:1,
-e:"Y* is the output produced when resources are used at normal rates — not at a physical maximum and not at zero unemployment."},
-
-{t:"L2",k:"T",q:"If actual output exceeds potential output, the output gap Y* − Y is:",
-o:["Positive",
-   "Zero",
-   "Negative",
-   "Undefined"],a:2,
-e:"The gap is defined as Y* minus Y. When Y is larger, the gap turns negative."},
-
-{t:"L2",k:"T",q:"In an expansionary gap, cyclical unemployment is:",
-o:["Positive",
-   "Zero",
-   "Negative",
-   "Equal to the natural rate"],a:2,
-e:"Expansionary gap means u is below u*, so u − u* is negative. Students often flip the sign here."},
-
-{t:"L2",k:"T",q:"If u = 3.8% and u* = 4.5%, cyclical unemployment is:",
-o:["+0.7 percentage points",
-   "−0.7 percentage points",
-   "8.3 percentage points",
-   "Zero"],a:1,
-e:"Cyclical unemployment = u − u* = 3.8 − 4.5 = −0.7 percentage points, consistent with an expansionary gap."},
-
-{t:"L2",k:"S",q:"If the economy is at full employment:",
-o:["Unemployment is zero",
-   "Frictional and structural unemployment remain",
-   "The output gap is positive",
-   "Cyclical unemployment is positive"],a:1,
-e:"Full employment means no cyclical unemployment. Search and structural mismatch can still exist."},
-
-{t:"L2",k:"T",q:"A recessionary gap means:",
-o:["Y is above Y* and u is below u*",
-   "Y* is above Y and u is above u*",
-   "Y equals Y* and u equals u*",
-   "Y* is above Y and u is below u*"],a:1,
-e:"Recessionary: output below potential and unemployment above the natural rate. Both conditions must line up."},
-
-{t:"L2",k:"T",q:"Which is NOT part of the natural rate of unemployment?",
-o:["Frictional unemployment",
-   "Structural unemployment",
-   "Cyclical unemployment",
-   "Job-search unemployment"],a:2,
-e:"u* reflects frictional plus structural unemployment at normal output. Cyclical is the deviation from u*."},
-
-{t:"L2",k:"T",q:"The short-run Phillips curve implies that, in the short run, a fall in inflation is associated with:",
-o:["Lower unemployment",
-   "Higher unemployment",
-   "No change in unemployment",
-   "Higher potential output"],a:1,
-e:"The short-run trade-off is higher inflation ↔ lower unemployment, so lower inflation ↔ higher unemployment."},
-
-{t:"L2",k:"S",q:"A worker quits to relocate and then searches for a local job. This is:",
-o:["Structural unemployment",
-   "Cyclical unemployment",
-   "Frictional unemployment",
-   "Outside the labour force"],a:2,
-e:"Voluntary short-term search while matching with jobs is frictional, not structural."},
-
-{t:"L2",k:"S",q:"A printing technician whose skills no longer match digital-publishing jobs is:",
-o:["Frictionally unemployed",
-   "Structurally unemployed",
-   "Cyclically unemployed",
-   "Underemployed"],a:1,
-e:"Skill mismatch that persists even at normal output is structural unemployment."},
-
-{t:"L2",k:"S",q:"Hotels lay off staff because a recession reduces bookings. This is:",
-o:["Frictional unemployment",
-   "Structural unemployment",
-   "Cyclical unemployment",
-   "The natural rate"],a:2,
-e:"Recession-driven layoffs are the definition of cyclical unemployment."},
-
-{t:"L2",k:"T",q:"Structural unemployment differs from frictional because structural is:",
-o:["Short-term and voluntary",
-   "Long-term and chronic even at normal output",
-   "Only present during recessions",
-   "Always zero at full employment"],a:1,
-e:"Both exist at full employment, but only structural is long-term and chronic."},
-
-{t:"L2",k:"S",q:"If Y is below Y*, then:",
-o:["u is below u*",
-   "u is above u*",
-   "u equals u*",
-   "Cyclical unemployment is negative"],a:1,
-e:"Output below potential means labour is underused, so unemployment exceeds the natural rate."},
-
-{t:"L2",k:"S",q:"If Y is above Y*, the output gap Y* − Y is:",
-o:["Positive",
-   "Negative",
-   "Zero",
-   "Equal to u − u*"],a:1,
-e:"Y above Y* makes the gap negative. This is the expansionary case."},
-
-/* ================= L1: CPI / INFLATION TRAPS ================= */
-{t:"L1",k:"T",q:"The CPI rises from 1.08 to 1.14. Which statement is correct?",
-o:["The price level rose 14% during that year",
-   "The annual inflation rate was 5.56%",
-   "The annual inflation rate was 6%",
-   "Deflation occurred"],a:1,
-e:"14% is the rise relative to the base year, not the annual change. The annual rate is (1.14 − 1.08)/1.08 = 5.56%."},
-
-{t:"L1",k:"T",q:"If the CPI rises from 100 to 114 over two years, the annual inflation rate in the second year cannot be determined without:",
-o:["The GDP deflator",
-   "The first year's CPI",
-   "Real GDP",
-   "The labour force"],a:1,
-e:"The annual rate needs the CPI in the previous year as the denominator. The two-year total alone is not enough."},
-
-{t:"L1",k:"T",q:"Which is a cumulative change rather than an annual rate?",
-o:["Inflation in 2026 = 5.56%",
-   "The CPI rose 14% from 2024 to 2026",
-   "The real wage fell 2% this year",
-   "The real interest rate is 3%"],a:1,
-e:"Options A, C and D are all rates for a single period. Option B spans two years and is cumulative."},
-
-{t:"L1",k:"T",q:"A CPI of 1.14 means:",
-o:["Prices rose 14% this year",
-   "The basket costs 14% more than in the base year",
-   "Inflation is 114%",
-   "Real GDP rose 14%"],a:1,
-e:"The CPI is an index level relative to the base year, not an annual inflation rate."},
-
-{t:"L1",k:"T",q:"A GDP deflator of 116.7 means:",
-o:["Inflation was 16.7% that year",
-   "Prices of domestic output are 16.7% above the base year",
-   "Real GDP is 116.7% of nominal GDP",
-   "The CPI is 116.7"],a:1,
-e:"Like the CPI, the deflator is an index level with a base of 100%. Its percentage change is the inflation rate."},
-
-{t:"L1",k:"T",q:"Which is more likely included in the CPI but NOT the GDP deflator?",
-o:["A domestically produced car exported abroad",
-   "An imported phone bought by a household",
-   "A new factory machine produced domestically",
-   "A government service produced domestically"],a:1,
-e:"Imports can sit in the consumer basket but are not domestic production, so they stay out of the deflator."},
-
-{t:"L1",k:"T",q:"Which is in the GDP deflator but NOT the CPI?",
-o:["Imported food",
-   "Domestically produced machinery sold to a foreign firm",
-   "A haircut bought by a household",
-   "Imported clothing"],a:1,
-e:"Exports are domestically produced, so they enter the deflator but not the consumer basket."},
-
-{t:"L1",k:"T",q:"If nominal GDP rises 8% and real GDP also rises 8%, the GDP deflator:",
-o:["Rises 8%",
-   "Is unchanged",
-   "Falls 8%",
-   "Rises 16%"],a:1,
-e:"The deflator is nominal over real. Equal growth in both leaves the ratio, and hence the deflator, unchanged."},
-
-{t:"L1",k:"T",q:"If nominal GDP rises 40% and real GDP rises 20%, the deflator rises approximately:",
-o:["20%",
-   "16.7%",
-   "60%",
-   "2%"],a:1,
-e:"1.40 / 1.20 = 1.167, so about 16.7%. Subtracting the growth rates (40 − 20) is the tempting but wrong shortcut."},
-
-{t:"L1",k:"T",q:"Nominal income rises 10% while the CPI rises 14%. Real income:",
-o:["Rises 24%",
-   "Rises 4%",
-   "Falls about 3.5%",
-   "Is unchanged"],a:2,
-e:"Real income = nominal ÷ CPI. 1.10 / 1.14 = 0.965, so purchasing power falls about 3.5%."},
-
-{t:"L1",k:"T",q:"Nominal income is unchanged and the CPI falls from 1.20 to 1.10. Real income:",
-o:["Falls",
-   "Rises",
-   "Is unchanged",
-   "Cannot be computed"],a:1,
-e:"Falling prices raise purchasing power. Dividing by a smaller CPI gives a larger real quantity."},
-
-{t:"L1",k:"T",q:"To keep purchasing power constant when the CPI rises from 1.00 to 1.14, a $5,000 payment should become:",
-o:["$5,700",
-   "$5,140",
-   "$5,000",
-   "$4,386"],a:0,
-e:"5,000 × 1.14 = $5,700. Adding 14% of 1,000 ($5,140) confuses the percentage with the index."},
-
-{t:"L1",k:"T",q:"A $5,000 scholarship indexed to the CPI (1.00 to 1.14) with an additional 2% real increase becomes:",
-o:["$5,814",
-   "$5,700",
-   "$5,714",
-   "$5,900"],a:0,
-e:"The factors multiply: 5,000 × 1.14 × 1.02 = $5,814. Adding 14% and 2% (giving 5,800) is the trap."},
-
-{t:"L1",k:"T",q:"Which operation converts a nominal quantity into real terms?",
-o:["Multiply by the CPI",
-   "Divide by the CPI",
-   "Add the inflation rate",
-   "Subtract the real interest rate"],a:1,
-e:"Deflating means dividing by a price index. Multiplying by the CPI is indexing, which moves in the opposite direction."},
-
-{t:"L1",k:"T",q:"A wage rises from $20 to $21 while the CPI rises from 1.00 to 1.10. The real wage:",
-o:["Rises 5%",
-   "Falls about 4.5%",
-   "Rises 10%",
-   "Is unchanged"],a:1,
-e:"21/1.10 = 19.09, down from 20, so about a 4.5% fall. The 5% nominal gain is smaller than 10% inflation."},
-
-{t:"L1",k:"T",q:"CPI 2024 = 1.00, 2025 = 1.06, 2026 = 1.12. The inflation rate in 2025 is:",
-o:["6%",
-   "12%",
-   "5.66%",
-   "0.06%"],a:0,
-e:"(1.06 − 1.00)/1.00 = 6%. The 12% figure is the two-year cumulative change."},
-
-{t:"L1",k:"T",q:"Using the same data, the inflation rate in 2026 is:",
-o:["6%",
-   "12%",
-   "5.66%",
-   "6.38%"],a:2,
-e:"(1.12 − 1.06)/1.06 = 5.66%. Note it differs from the 6% in 2025 even though the index rose 6 points again."},
-
-{t:"L1",k:"T",q:"Using the same data, the cumulative change from 2024 to 2026 is:",
-o:["12%",
-   "6%",
-   "11.2%",
-   "5.66%"],a:0,
-e:"1.12/1.00 − 1 = 12%. Adding the two annual rates (6 + 5.66) would overstate it."},
-
-{t:"L1",k:"T",q:"If the CPI is 0.95 in Year 2 and 1.00 in Year 1, the inflation rate is:",
-o:["+5%",
-   "−5%",
-   "−0.05%",
-   "95%"],a:1,
-e:"(0.95 − 1.00)/1.00 = −5%, which is deflation."},
-
-{t:"L1",k:"T",q:"A nominal payment of $1,000 with a CPI of 1.25 has a real value of:",
-o:["$1,250",
-   "$800",
-   "$1,025",
-   "$750"],a:1,
-e:"1,000 / 1.25 = $800. Multiplying would be wrong; deflating always divides."},
-
-{t:"L1",k:"T",q:"To index a $2,000 payment when the CPI goes from 1.00 to 1.10:",
-o:["$2,200",
-   "$2,020",
-   "$1,818",
-   "$2,100"],a:0,
-e:"Indexing multiplies: 2,000 × 1.10 = $2,200. The $1,818 option is the result of deflating instead."},
-
-{t:"L1",k:"T",q:"If prices fall and a payment is fully indexed to the CPI, the payment:",
-o:["Rises",
-   "Falls, in proportion to the CPI decline",
-   "Is unchanged",
-   "Doubles"],a:1,
-e:"Indexing tracks the index in both directions. Deflation reduces an indexed payment."},
-
-{t:"L1",k:"T",q:"Nominal rate 3%, inflation 4%. The approximate real rate is:",
-o:["1%",
-   "−1%",
-   "7%",
-   "12%"],a:1,
-e:"r ≈ i − π = 3 − 4 = −1%. The Fisher equation subtracts inflation; it does not add it."},
-
-{t:"L1",k:"T",q:"Nominal rate 8%, inflation 3%. The approximate real rate is:",
-o:["11%",
-   "5%",
-   "2.67%",
-   "24%"],a:1,
-e:"r ≈ 8 − 3 = 5%. Dividing (8/3) is a common but incorrect alternative."},
-
-{t:"L1",k:"T",q:"A lender expects 3% inflation and sets a 6% nominal rate. Actual inflation turns out to be 5%. The lender:",
-o:["Gains relative to expectations",
-   "Loses relative to expectations",
-   "Is unaffected",
-   "Earns a 6% real return"],a:1,
-e:"Realised real return is about 1% instead of the expected 3%. Unexpectedly high inflation hurts lenders."},
-
-{t:"L1",k:"T",q:"Unexpectedly low inflation benefits:",
-o:["Borrowers",
-   "Lenders",
-   "Nobody",
-   "The government only"],a:1,
-e:"Lower-than-expected inflation raises the lender's real return. Unexpectedly high inflation does the opposite."},
-
-{t:"L1",k:"T",q:"Which is a real quantity?",
-o:["Your salary in dollars this month",
-   "The CPI",
-   "The number of lunches your salary can buy",
-   "The nominal interest rate"],a:2,
-e:"Real quantities are measured in physical terms. A and D are nominal; B is an index, not a quantity."},
-
-{t:"L1",k:"T",q:"Shoe-leather costs refer to:",
-o:["The cost of producing shoes",
-   "Resources used to economise on holding cash during high inflation",
-   "The cost of changing prices (menu costs)",
-   "Tax distortions"],a:1,
-e:"It is about economising on cash holdings, not literally about shoes, and it is distinct from menu costs."},
-
-{t:"L1",k:"T",q:"Which is NOT listed as a cost of inflation in the lecture?",
-o:["Noise in the price system",
-   "Tax distortions",
-   "Shoe-leather costs",
-   "Substitution bias"],a:3,
-e:"Substitution bias is a CPI measurement problem, not a cost inflation imposes on the economy."},
-
-{t:"L1",k:"T",q:"Bracket creep is an example of:",
-o:["Shoe-leather costs",
-   "A tax distortion caused by inflation",
-   "Substitution bias",
-   "Quality adjustment bias"],a:1,
-e:"Bracket creep pushes taxpayers into higher brackets without any real gain — a classic tax distortion."},
-
-{t:"L1",k:"T",q:"If all prices double, the price level ___ and relative prices ___.",
-o:["Doubles; change",
-   "Doubles; are unchanged",
-   "Is unchanged; double",
-   "Is unchanged; are unchanged"],a:1,
-e:"Every price ratio stays the same. Only the overall level moves."},
-
-{t:"L1",k:"T",q:"The effect of one good's price rise on the overall price level depends on:",
-o:["The base year chosen",
-   "Its weight in the price index",
-   "The GDP deflator",
-   "The labour force"],a:1,
-e:"A good with a tiny weight barely moves the index; a heavily weighted good moves it a lot."},
-
-{t:"L1",k:"T",q:"Quality adjustment bias means the CPI:",
-o:["Understates price increases",
-   "Overstates the pure price increase when quality improves",
-   "Is unaffected by quality changes",
-   "Equals the GDP deflator"],a:1,
-e:"If part of a price rise is better quality, ignoring it overstates pure inflation."},
-
-{t:"L1",k:"T",q:"Substitution bias arises because the CPI basket:",
-o:["Changes every month",
-   "Is fixed and ignores consumers switching to cheaper alternatives",
-   "Includes imports",
-   "Uses current quantities"],a:1,
-e:"The fixed basket keeps buying the more expensive good, so measured cost of living rises more than it should."},
-
-{t:"L1",k:"T",q:"If consumers switch from bus to rail after a bus fare rise, the CPI:",
-o:["Overstates the cost-of-living increase",
-   "Understates it",
-   "Is unaffected",
-   "Falls"],a:0,
-e:"That is substitution bias: the index keeps pricing the bus rides consumers no longer take."},
-
-{t:"L1",k:"T",q:"Which of these is a source of UPWARD bias in the CPI?",
-o:["Deflation",
-   "Indexing",
-   "Substitution bias",
-   "Deflating"],a:2,
-e:"Both quality adjustment bias and substitution bias push measured inflation above the true change."},
-
-/* ================= L1: iBONDS TRAPS ================= */
-{t:"L1",k:"T",q:"The iBond floating rate is the:",
-o:["Latest month's year-on-year CPI change",
-   "Average of six months' year-on-year Composite CPI changes, rounded to two decimals",
-   "Average of six CPI index levels",
-   "CPI level divided by six"],a:1,
-e:"You average the six year-on-year percentage changes. Averaging index levels is the classic error."},
-
-{t:"L1",k:"T",q:"Six year-on-year changes: 0.4, 0.6, 0.8, 1.0, 1.2, 1.4 (%). The floating rate is:",
-o:["0.90%",
-   "5.4%",
-   "1.00%",
-   "1.40%"],a:0,
-e:"Sum = 5.4, divided by 6 = 0.90%. The 5.4% option forgets to divide."},
-
-{t:"L1",k:"T",q:"With the 2020 issue's 2% minimum and a floating rate of 0.90%, the iBond pays:",
-o:["2.90%",
-   "2.00%",
-   "0.90%",
-   "1.10%"],a:1,
-e:"The minimum is a floor. You use the higher rate; you do not add the floor to the floating rate."},
-
-{t:"L1",k:"T",q:"With a floating rate of 3.20% and a 2% minimum, the rate used is:",
-o:["5.20%",
-   "2.00%",
-   "3.20%",
-   "1.20%"],a:2,
-e:"The floating rate exceeds the floor, so the floating rate applies. 5.20% comes from wrongly adding them."},
-
-{t:"L1",k:"T",q:"Which is a mistake when applying the iBond rule?",
-o:["Averaging six year-on-year percentage changes",
-   "Using the higher of the floating and minimum rates",
-   "Adding the minimum rate to the floating rate",
-   "Rounding to two decimal places"],a:2,
-e:"The minimum is a floor, not an add-on. Adding it is the most common iBond error."},
-
-{t:"L1",k:"T",q:"The iBond principal at maturity:",
-o:["Is indexed to the CPI",
-   "Is repaid at 100% as a nominal amount",
-   "Equals the accumulated interest",
-   "Is repaid at the floating rate"],a:1,
-e:"Only the interest is inflation-linked. Principal stays nominal."},
-
-{t:"L1",k:"T",q:"iBond rates are quoted annually but interest is paid:",
-o:["Monthly",
-   "Quarterly",
-   "Twice a year",
-   "At maturity only"],a:2,
-e:"Annual rate, semi-annual payments. Both facts are stated in the supplement."},
-
-{t:"L1",k:"T",q:"The 2% minimum applies to:",
-o:["All iBond issues",
-   "The 2020 issue, while earlier issues had a 1% minimum",
-   "Only the first series",
-   "No issue"],a:1,
-e:"The minimum has varied across issues. Earlier issues used 1%."},
-
-{t:"L1",k:"T",q:"Six year-on-year changes: 2.0, 2.2, 2.4, 2.6, 2.8, 3.0 (%). The floating rate is:",
-o:["2.50%",
-   "15.0%",
-   "2.60%",
-   "2.40%"],a:0,
-e:"Sum = 15.0, divided by 6 = 2.50%."},
-
-{t:"L1",k:"T",q:"An iBond has a floating rate of 2.50% and a 2% floor. It pays:",
-o:["4.50%",
-   "2.50%",
-   "2.00%",
-   "0.50%"],a:1,
-e:"The floating rate is above the floor, so 2.50% applies."},
-
-{t:"L1",k:"T",q:"Six monthly year-on-year changes average −0.5% and the minimum is 1%. The rate used is:",
-o:["−0.5%",
-   "0.5%",
-   "1.00%",
-   "0%"],a:2,
-e:"The floor protects against deflation. The floating rate is below 1%, so 1.00% applies."},
-
-{t:"L1",k:"T",q:"Which statement about iBonds is FALSE?",
-o:["The first series was issued in July 2011",
-   "The term is three years",
-   "The minimum denomination is HK$10,000",
-   "The interest rate is fixed at issue"],a:3,
-e:"The rate floats with Composite CPI inflation, subject to a minimum. It is not fixed at issue."},
-
-/* ================= L3: GDP TRAPS ================= */
-{t:"L3",k:"T",q:"Which is included in GDP?",
-o:["A used textbook resold",
-   "A newly produced desk",
-   "A transfer payment",
-   "A share purchase"],a:1,
-e:"Only current production counts. Resales, transfers and financial-asset trades are excluded."},
-
-{t:"L3",k:"T",q:"An existing home sells for $5m and the agent earns $50k. GDP includes:",
-o:["$5m",
-   "$50k",
-   "$5.05m",
-   "Nothing"],a:1,
-e:"The house is not current production, but the agent's service is newly produced this period."},
-
-{t:"L3",k:"T",q:"A firm's revenue is $800 and purchased inputs are $500. Value added is:",
-o:["$800",
-   "$500",
-   "$300",
-   "$1,300"],a:2,
-e:"Value added = revenues − purchased inputs = 300. Using revenue alone double counts."},
-
-{t:"L3",k:"T",q:"Summing all revenues instead of value added:",
-o:["Gives GDP",
-   "Double counts intermediate goods",
-   "Understates GDP",
-   "Equals net exports"],a:1,
-e:"In the lecture example revenues sum to $1,500 while GDP is $800. The difference is double counting."},
-
-{t:"L3",k:"T",q:"Timber ($200) is produced in 2025; the desk ($800 revenue, $500 inputs) in 2026. How much enters 2026 GDP?",
-o:["$800",
-   "$500",
-   "$300",
-   "$1,500"],a:2,
-e:"Only the 2026 value added of $300 counts. The $500 of inputs already entered 2025 GDP."},
-
-{t:"L3",k:"T",q:"New housing is classified as:",
-o:["Consumption",
-   "Investment",
-   "Government purchases",
-   "Net exports"],a:1,
-e:"Residential investment is part of I. Only the agent's service on an existing home is different."},
-
-{t:"L3",k:"T",q:"Government transfer payments are:",
-o:["Included in G",
-   "Excluded from GDP",
-   "Included in investment",
-   "Included in net exports"],a:1,
-e:"Transfers and interest on government debt are not purchases of final goods and services."},
-
-{t:"L3",k:"T",q:"Inventory investment equals:",
-o:["The ending stock of inventories",
-   "The change in inventories",
-   "The beginning stock of inventories",
-   "Total sales"],a:1,
-e:"In the lecture example inventories rose from 70 to 100, so 30 enters GDP — not the ending stock of 100."},
-
-{t:"L3",k:"T",q:"C = 1,100, I = 430, G = 250, NX = 20. GDP is:",
-o:["1,780",
-   "1,800",
-   "1,820",
-   "1,750"],a:1,
-e:"1,100 + 430 + 250 + 20 = 1,800."},
-
-{t:"L3",k:"T",q:"A household buys an imported television. This:",
-o:["Raises consumption and imports, so NX falls",
-   "Raises consumption only",
-   "Raises NX",
-   "Raises investment"],a:0,
-e:"Consumption rises but imports also rise, subtracting from NX, so the net effect on GDP is zero."},
-
-{t:"L3",k:"T",q:"Which is a final good?",
-o:["Steel bought by a car maker",
-   "Flour bought by a bakery",
-   "A car bought by a household",
-   "Timber bought by a workshop"],a:2,
-e:"The other three are inputs purchased by firms and will be counted again in their outputs."},
-
-{t:"L3",k:"T",q:"In the base year:",
-o:["Real GDP exceeds nominal GDP",
-   "Real GDP equals nominal GDP",
-   "Nominal GDP is zero",
-   "The GDP deflator is zero"],a:1,
-e:"Base-year prices are used for real GDP, so the two are identical in that year."},
-
-{t:"L3",k:"T",q:"2025: 10 desks at $800, 20 sessions at $200. 2026: 12 desks at $900, 24 sessions at $250. Real GDP in 2026 at 2025 prices is:",
-o:["$16,800",
-   "$14,400",
-   "$12,000",
-   "$15,000"],a:1,
-e:"12×800 + 24×200 = 14,400. The $16,800 option is nominal GDP."},
-
-{t:"L3",k:"T",q:"Using the same data, nominal GDP growth from 2025 to 2026 is:",
-o:["20%",
-   "40%",
-   "16.8%",
-   "12%"],a:1,
-e:"16,800/12,000 − 1 = 40%. The 20% figure is real growth."},
-
-{t:"L3",k:"T",q:"Using the same data, real GDP growth is:",
-o:["20%",
-   "40%",
-   "16.8%",
-   "25%"],a:0,
-e:"14,400/12,000 − 1 = 20%. The gap between 40% and 20% is the price change."},
-
-{t:"L3",k:"T",q:"With nominal GDP $16,800 and real GDP $14,400, the GDP deflator is about:",
-o:["116.7",
-   "85.7",
-   "1.167%",
-   "144"],a:0,
-e:"(16,800/14,400) × 100% = 116.7%. The 85.7 option inverts the ratio."},
-
-{t:"L3",k:"T",q:"If the deflator is 120 and real GDP is $15,000, nominal GDP is:",
-o:["$18,000",
-   "$12,500",
-   "$15,120",
-   "$16,200"],a:0,
-e:"Nominal = real × deflator/100 = 15,000 × 1.20 = $18,000. Dividing instead gives the $12,500 trap."},
-
-{t:"L3",k:"T",q:"The CPI fixes ___ while real GDP fixes ___.",
-o:["Prices; quantities",
-   "Quantities; prices",
-   "Quantities; quantities",
-   "Prices; prices"],a:1,
-e:"CPI holds basket quantities fixed and compares prices. Real GDP holds prices fixed and compares quantities."},
-
-{t:"L3",k:"T",q:"If prices double and quantities are unchanged:",
-o:["Nominal and real GDP both double",
-   "Nominal GDP doubles while real GDP is unchanged",
-   "Real GDP doubles while nominal is unchanged",
-   "Neither changes"],a:1,
-e:"Real GDP uses base-year prices, so it is unaffected by the price change."},
-
-{t:"L3",k:"T",q:"If real GDP rises while nominal GDP is unchanged, prices must have:",
-o:["Risen",
-   "Fallen",
-   "Stayed the same",
-   "Doubled"],a:1,
-e:"Nominal equals real times the price level. If nominal is flat while real rises, prices fell."},
-
-{t:"L3",k:"T",q:"Which is NOT counted in GDP?",
-o:["A firm's purchase of a new machine",
-   "A household's purchase of a new car",
-   "A firm's purchase of intermediate steel",
-   "Government purchase of office supplies"],a:2,
-e:"Intermediate inputs are counted inside the value of the final goods, not separately."},
-
-{t:"L3",k:"T",q:"In the value-added example, the sum of value added ($800) equals:",
-o:["The final desk price",
-   "The sum of revenues",
-   "The sum of input costs",
-   "The sum of profits"],a:0,
-e:"Value added summed across firms equals the market value of the final good — here, $800."},
-
-{t:"L3",k:"T",q:"Which is a nonmarket activity excluded from GDP?",
-o:["A paid haircut",
-   "Cooking dinner for your family",
-   "A restaurant meal",
-   "A paid tutoring session"],a:1,
-e:"Unpaid household production creates value but is outside measured GDP."},
-
-{t:"L3",k:"T",q:"Which is included in government purchases G?",
-o:["A pension payment",
-   "Interest paid on government debt",
-   "A civil servant's salary",
-   "A transfer to a household"],a:2,
-e:"Civil servants provide current services, so their salaries are purchases. Transfers and debt interest are not."},
-
-{t:"L3",k:"T",q:"A newly built house is counted as:",
-o:["Consumption",
-   "Investment",
-   "Government purchases",
-   "Net exports"],a:1,
-e:"Residential investment is part of I. A resale of an existing house would count for nothing except the agent's service."},
-
-{t:"L3",k:"T",q:"A new desk produced in 2026 but sold in 2027 counts in:",
-o:["2027 GDP",
-   "2026 GDP as inventory investment",
-   "Both years",
-   "Neither year"],a:1,
-e:"GDP uses the time of production. Unsold output is inventory investment in the year it was made."},
-
-{t:"L3",k:"T",q:"Which transaction is excluded from GDP?",
-o:["A newly built house",
-   "A haircut service",
-   "A resale of a used car",
-   "A restaurant meal"],a:2,
-e:"The used car was produced in an earlier period. Only the dealer's service, if any, is current output."},
-
-{t:"L3",k:"T",q:"A foreign-owned firm producing in Hong Kong contributes to:",
-o:["Hong Kong GDP",
-   "Only the foreign country's GDP",
-   "Neither economy's GDP",
-   "Hong Kong GNP only"],a:0,
-e:"GDP uses production location, not the owner's nationality."},
-
-{t:"L3",k:"T",q:"A Hong Kong firm producing abroad contributes to:",
-o:["Hong Kong GDP",
-   "The GDP of the host economy where it produces",
-   "Both equally",
-   "Neither"],a:1,
-e:"Production abroad is part of the host country's GDP."},
-
-{t:"L3",k:"T",q:"The simplified income approach states GDP equals:",
-o:["C + I + G + NX",
-   "Labour income + capital income",
-   "Value added only",
-   "Exports − imports"],a:1,
-e:"Option A is the expenditure approach. The income approach sums labour and capital income."},
-
-{t:"L3",k:"T",q:"Royalties are classified as:",
-o:["Labour income",
-   "Capital income",
-   "Transfer payments",
-   "Net exports"],a:1,
-e:"Profits, rent, interest and royalties are capital income; wages, salaries and self-employed income are labour income."},
-
-{t:"L3",k:"T",q:"Which statement about the GDP deflator is correct?",
-o:["It is an inflation rate",
-   "It is an index level with the base year set at 100%",
-   "It is identical to the CPI",
-   "It includes imports"],a:1,
-e:"The deflator is an index level. You must take its percentage change to obtain an inflation rate."},
-
-{t:"L3",k:"T",q:"A newly provided agent service on the sale of an existing home is:",
-o:["Excluded from GDP",
-   "Counted as current output",
-   "A transfer payment",
-   "Investment"],a:1,
-e:"The house is old but the service is new production this period."},
-
-{t:"L3",k:"T",q:"If exports fall while imports are unchanged, net exports:",
-o:["Rise",
-   "Fall",
-   "Are unchanged",
-   "Double"],a:1,
-e:"NX = exports − imports. A fall in exports reduces NX and hence GDP."},
-
-{t:"L3",k:"T",q:"GDP measures production by:",
-o:["The nationality of the firm",
-   "The location of production",
-   "The residence of the owner",
-   "The currency of sale"],a:1,
-e:"'Domestic' in GDP refers to where production happens."},
-
-{t:"L3",k:"T",q:"Which is NOT a limitation of GDP as a welfare measure mentioned in the lecture?",
-o:["Leisure time",
-   "Nonmarket activities",
-   "Environmental quality",
-   "The market value of output"],a:3,
-e:"Market value is part of the definition of GDP, not a limitation. The others are the listed welfare gaps."},
-
-{t:"L3",k:"T",q:"Unpaid household work is:",
-o:["Included in GDP",
-   "Outside measured GDP",
-   "Counted as investment",
-   "Counted as government purchases"],a:1,
-e:"It creates value but is nonmarket, so it is outside measured GDP."},
-
-{t:"L3",k:"T",q:"GDP per head does NOT reveal:",
-o:["Total output",
-   "Income distribution",
-   "Market prices",
-   "Output growth"],a:1,
-e:"An aggregate says nothing about how income is shared among people."},
-
-{t:"L3",k:"T",q:"A new car produced and sold to a household in the same year is:",
-o:["Consumption",
-   "Investment",
-   "Both consumption and inventory investment",
-   "Net exports"],a:0,
-e:"It is a consumer durable bought by a household, so it is C. Inventory investment would apply only to unsold output."},
-
-{t:"L3",k:"T",q:"A firm builds a new factory. This is:",
-o:["Consumption",
-   "Business fixed investment",
-   "Inventory investment",
-   "Government purchases"],a:1,
-e:"Business fixed investment covers new plant and equipment bought by firms."},
-
-{t:"L3",k:"T",q:"Consumer durables are part of:",
-o:["C",
-   "I",
-   "G",
-   "NX"],a:0,
-e:"Consumption covers durables, nondurables and services. New housing is the exception that sits in I."},
-
-{t:"L3",k:"T",q:"If real GDP rises 5% and the GDP deflator rises 2%, nominal GDP rises approximately:",
-o:["3%",
-   "7%",
-   "10%",
-   "2.5%"],a:1,
-e:"Nominal growth ≈ real growth + deflator growth = 5 + 2 = 7%."}
+/* ==================== LECTURE 1 — CPI & INFLATION SCENARIOS ==================== */
+{t:"L1",q:"Your favourite cha chaan teng raises its set lunch from $45 to $50. The shop next door still charges $45. What happened?",o:["Inflation occurred","Only a relative price change for that restaurant occurred","Deflation occurred","The CPI must have risen 11%"],a:1,e:"Inflation is a rise in the overall price level. One shop's price change is a relative price change."},
+{t:"L1",q:"Over one year, every price in the economy roughly doubles. Which is true?",o:["Relative prices also doubled","The price level doubled but relative prices are unchanged","Only the CPI changed, not relative prices","Real GDP doubled"],a:1,e:"If all prices move proportionally, every price ratio stays the same."},
+{t:"L1",q:"The CPI was 1.05 last year and 1.092 this year. The inflation rate this year is:",o:["4.2%","9.2%","4.0%","0.42%"],a:2,e:"(1.092 − 1.05)/1.05 = 4%. The 4.2% trap comes from dividing by 1.00 instead of last year's CPI."},
+{t:"L1",q:"A student says: 'The CPI went from 1.20 to 1.26, so inflation was 6%.' Which is the best response?",o:["Correct, 6%","Inflation was 5%, because you divide the 0.06 change by last year's index","Inflation was 0.06%","Inflation cannot be computed"],a:1,e:"0.06/1.20 = 5%. A six-point rise in an index is not a 6% inflation rate."},
+{t:"L1",q:"CPI: 1.00 in 2024, 1.10 in 2025, 1.21 in 2026. Inflation in 2026 is:",o:["21%","11%","10%","9.09%"],a:2,e:"(1.21 − 1.10)/1.10 = 10%. The 21% figure is the two-year cumulative change."},
+{t:"L1",q:"The CPI falls from 1.04 to 1.00. What happened?",o:["Inflation was −3.85%, i.e. deflation","Inflation was −4%","Prices were unchanged","Deflation was 4.04%"],a:0,e:"−0.04/1.04 = −3.85%. Dividing by the new index instead of the old one gives the −4% trap."},
+{t:"L1",q:"Your newspaper reports inflation fell from 3% to 1.5%. A friend says 'prices are falling now.' Is your friend right?",o:["Yes, prices fell","No — the price level is still rising, just more slowly","Yes, if inflation is below 2%","Only if the CPI fell"],a:1,e:"A lower positive inflation rate still means rising prices. Only negative inflation is falling prices."},
+{t:"L1",q:"Over a year, MTR fares, rent, food and cinema tickets all fall. This is best described as:",o:["A relative price change","Deflation","Disinflation","A substitution bias"],a:1,e:"Broad-based falling prices with negative inflation is deflation."},
+{t:"L1",q:"Only the price of milk tea falls while everything else is unchanged. This is:",o:["Deflation","A relative price fall for milk tea","Negative inflation in the CPI","Disinflation"],a:1,e:"Deflation requires most prices to fall. One good's price fall is a relative price change."},
+{t:"L1",q:"Your monthly basket in 2024: 20 lunches at $40 and 10 coffees at $20, total $1,000. In 2025 lunches cost $44 and coffees $22. The 2025 CPI (2024 = 1.00) is:",o:["1.00","1.08","1.10","1.20"],a:2,e:"20×44 + 10×22 = 880 + 220 = $1,100, so CPI = 1,100/1,000 = 1.10."},
+{t:"L1",q:"Using that basket, the inflation rate in 2025 is:",o:["10%","8%","12%","1.10%"],a:0,e:"(1.10 − 1.00)/1.00 = 10%."},
+{t:"L1",q:"If the 2026 CPI for the same basket is also 1.10, inflation in 2026 is:",o:["10%","0%","−10%","1%"],a:1,e:"(1.10 − 1.10)/1.10 = 0%. The 10% figure wrongly repeats the level."},
+{t:"L1",q:"You switch from beef to chicken because beef became expensive. Your true cost of living rose less than the CPI suggests. This is an example of:",o:["Quality adjustment bias","Substitution bias","Deflation","Indexing"],a:1,e:"The fixed basket keeps buying beef, so it overstates your cost increase — substitution bias."},
+{t:"L1",q:"A new phone costs more than last year's model but has a much faster processor. If the CPI ignores the quality gain, it:",o:["Understates inflation","Overstates the pure price increase","Is exactly right","Becomes the GDP deflator"],a:1,e:"Part of the price rise is better quality, so ignoring it overstates pure inflation."},
+{t:"L1",q:"A supermarket runs a one-week promotion cutting many prices. Is this deflation?",o:["Yes","No — it is temporary and not a sustained broad fall","Yes, because the CPI will fall","Only if it lasts a month"],a:1,e:"Deflation is sustained, broad-based price decline, not a short promotion."},
+{t:"L1",q:"CPI was 103 last year and 105 this year. Inflation is:",o:["2%","1.94%","1.90%","5%"],a:1,e:"2/103 = 1.94%. Using the two index points directly as a percentage is the trap."},
+{t:"L1",q:"CPI was 105 last year and 103 this year. This year had:",o:["2% inflation","1.94% inflation","About 1.9% deflation","Zero inflation"],a:2,e:"−2/105 = −1.90%, so prices fell."},
+{t:"L1",q:"A student says 'the CPI rose by 2 index points, so inflation is 2%.' If last year's CPI was 1.10, actual inflation is:",o:["2%","1.82%","0.02%","18.2%"],a:1,e:"0.02/1.10 = 1.82%. Index points are not percentage points."},
+{t:"L1",q:"The CPI rose 14% over two years. Which statement is safe?",o:["Annual inflation was 7% each year","The cumulative change was 14%, but the annual path cannot be known from this alone","Annual inflation was 14%","Deflation occurred"],a:1,e:"Cumulative change is not the annual rate, and splitting it evenly is a guess."},
+{t:"L1",q:"The CPI rises from 1.08 to 1.14. Which is correct?",o:["The price level rose 14% this year","The annual inflation rate was 5.56%","The annual inflation rate was 6%","Prices fell"],a:1,e:"0.06/1.08 = 5.56%. The 14% is the level relative to the base year."},
+{t:"L1",q:"A CPI of 1.14 in 2026 means:",o:["Prices rose 14% during 2026","The basket costs 14% more than in the base year","Inflation is 114%","Real income rose 14%"],a:1,e:"An index level compares with the base year; it is not an annual rate."},
+{t:"L1",q:"If the CPI in the base year is 1.00 and this year is 2.00, the cumulative price change is:",o:["100%","50%","200%","2%"],a:0,e:"2.00/1.00 − 1 = 100%. Doubling means a 100% increase, not 200%."},
+{t:"L1",q:"Your rent rose 4% this year while the CPI rose 3%. Your real rent:",o:["Rose about 0.97%","Fell about 1%","Rose 7%","Was unchanged"],a:0,e:"1.04/1.03 = 1.0097, a real rise of about 0.97%."},
+{t:"L1",q:"Petrol prices doubled but you do not own a car. The CPI records a rise, but your own cost of living barely moves. Why?",o:["The CPI is wrong","The CPI is an average basket and your personal basket differs","Deflation occurred","Petrol is an intermediate good"],a:1,e:"The CPI reflects an average household, not any individual's spending pattern."},
+{t:"L1",q:"Two students have different spending patterns. Which statement is correct?",o:["They face exactly the same inflation rate","Their personal inflation rates can differ from the CPI","The CPI cannot be computed","Only one of them is in the labour force"],a:1,e:"The CPI is a weighted average; individual experiences vary with the basket."},
+{t:"L1",q:"A good with a tiny weight in the CPI doubles in price. The effect on the CPI is:",o:["Large","Small","Zero by definition","The same as if it had a large weight"],a:1,e:"The weight determines the impact on the overall index."},
+{t:"L1",q:"All prices and all wages in the economy double. Which is true?",o:["Relative prices double","The price level doubles and relative prices are unchanged","Real wages double","The CPI is unchanged"],a:1,e:"Proportional changes leave every ratio unchanged."},
+{t:"L1",q:"Bus fares rise while every other price is unchanged. What is the correct description?",o:["The price level doubled","Bus travel became relatively more expensive","Deflation occurred","The GDP deflator fell"],a:1,e:"A single price change alters relative prices, not the overall level dramatically."},
+{t:"L1",q:"The government wants to address the rising cost of housing specifically. This is a policy about:",o:["The general price level","A particular price, not general inflation","The natural rate of unemployment","Real GDP"],a:1,e:"Housing-specific policy targets a relative price; general inflation policy uses monetary and fiscal tools."},
+
+/* ==================== LECTURE 1 — DEFLATING & INDEXING SCENARIOS ==================== */
+{t:"L1",q:"Your salary rises from $15,000 to $15,750 (5%) and the CPI also rises 5%. Your real salary:",o:["Rises 10%","Rises 5%","Is unchanged","Falls 5%"],a:2,e:"1.05/1.05 = 1.00. Equal nominal and price growth leaves purchasing power flat."},
+{t:"L1",q:"Your salary rises 3% while the CPI rises 5%. Your purchasing power:",o:["Rises 2%","Falls about 1.9%","Rises 8%","Is unchanged"],a:1,e:"1.03/1.05 = 0.981, about a 1.9% fall. Subtracting (3 − 5 = −2) is close but not exact."},
+{t:"L1",q:"Your salary rises 6% while the CPI rises 2%. Your real salary rises about:",o:["4%","8%","3.92%","3%"],a:2,e:"1.06/1.02 = 1.0392, about 3.92%."},
+{t:"L1",q:"You earn a nominal $20,000 and the CPI is 1.25. Your real income is:",o:["$25,000","$16,000","$1,600","$20,000"],a:1,e:"20,000/1.25 = $16,000. Multiplying would be indexing, not deflating."},
+{t:"L1",q:"Your nominal income is $5,000 and the CPI is 1.14. Real income is about:",o:["$5,700","$4,385.96","$1,140","$5,000"],a:1,e:"5,000/1.14 = $4,385.96."},
+{t:"L1",q:"A $5,000 scholarship is indexed to the CPI, which rises from 1.00 to 1.14. The new payment is:",o:["$5,140","$5,700","$5,714","$5,000"],a:1,e:"5,000 × 1.14 = $5,700. Adding 14% of $1,000 is the trap."},
+{t:"L1",q:"The same scholarship also promises a 2% real increase. The new payment is:",o:["$5,700","$5,800","$5,814","$6,000"],a:2,e:"5,000 × 1.14 × 1.02 = $5,814. The factors multiply; adding 14% and 2% is wrong."},
+{t:"L1",q:"Your pension of $8,000 is indexed to the CPI, which rises from 1.00 to 1.20. You will receive:",o:["$8,800","$9,600","$8,200","$6,667"],a:1,e:"8,000 × 1.20 = $9,600."},
+{t:"L1",q:"Your rent of $10,000 is indexed to the CPI, now 1.25. The indexed rent is:",o:["$12,500","$11,250","$8,000","$10,250"],a:0,e:"10,000 × 1.25 = $12,500."},
+{t:"L1",q:"Deflation occurs and your payment is fully indexed to the CPI. Your payment:",o:["Rises","Falls in proportion to the CPI decline","Is unchanged","Doubles"],a:1,e:"Indexing tracks the index in both directions, including downward."},
+{t:"L1",q:"Your pension is fixed at $8,000 while the CPI rises 20%. Your real pension is about:",o:["$9,600","$6,666.67","$8,000","$1,600"],a:1,e:"8,000/1.20 = $6,666.67. A nominal freeze means a real cut."},
+{t:"L1",q:"Which arrangement preserves the purchasing power of a fixed payment over time?",o:["A fixed nominal amount","Indexing the payment to the CPI","Paying it earlier","Deflating it"],a:1,e:"Indexing raises the nominal amount in line with prices."},
+{t:"L1",q:"You want to compare your 2019 salary with your 2026 salary. What should you do?",o:["Compare the nominal amounts directly","Deflate each by the CPI to put both in the same year's prices","Multiply both by the CPI","Add the inflation rates together"],a:1,e:"Nominal amounts from different years are not comparable without deflating."},
+{t:"L1",q:"Nominal income is unchanged and the CPI doubles. Real income:",o:["Doubles","Halves","Is unchanged","Rises 50%"],a:1,e:"Dividing by a doubled CPI halves real income."},
+{t:"L1",q:"Worker A gets a 10% raise when the CPI rises 10%. Worker B gets 5% when the CPI rises 2%. Who gains more purchasing power?",o:["Worker A","Worker B","Both equally","Neither gains"],a:1,e:"A: 1.10/1.10 = 0%. B: 1.05/1.02 = +2.94%. B gains more."},
+{t:"L1",q:"The minimum wage rises from $40 to $42 (5%) while the CPI rises 5%. The real minimum wage:",o:["Rises 5%","Is unchanged","Falls 5%","Rises 10%"],a:1,e:"1.05/1.05 = 1.00. Equal growth leaves the real wage flat."},
+{t:"L1",q:"In the base year, $1,000 bought a certain basket. The CPI is now 1.10. To buy the same basket you now need:",o:["$1,000","$1,100","$909","$1,010"],a:1,e:"1,000 × 1.10 = $1,100."},
+{t:"L1",q:"Your nominal income doubles but prices triple. Your real income:",o:["Rises","Falls","Is unchanged","Triples"],a:1,e:"2/3 = 0.67, so real income falls by about a third."},
+{t:"L1",q:"Which operation converts a real quantity back into a nominal one?",o:["Divide by the CPI","Multiply by the CPI","Subtract the inflation rate","Subtract the real interest rate"],a:1,e:"Indexing multiplies by the price index; deflating divides by it."},
+{t:"L1",q:"Your wage is $100 in the base year and $110 now, with the CPI at 1.25. Your real wage:",o:["Rose","Fell from $100 to $88","Is unchanged","Doubled"],a:1,e:"110/1.25 = $88, below the original $100."},
+
+/* ==================== LECTURE 1 — DEFLATOR, BIASES, RELATIVE PRICES ==================== */
+{t:"L1",q:"You buy an imported phone. Its price appears in which index?",o:["The GDP deflator only","The CPI only","Both equally","Neither"],a:1,e:"Imports can sit in the consumer basket but are not domestic production."},
+{t:"L1",q:"A Hong Kong factory exports machinery. Its price appears in:",o:["The CPI only","The GDP deflator, because it is domestic production","Neither index","Both equally"],a:1,e:"Exports are domestically produced, so they enter the deflator, not the consumer basket."},
+{t:"L1",q:"Nominal GDP is $20,000 and real GDP is $16,000. The GDP deflator is:",o:["80","125","1.25%","36,000"],a:1,e:"(20,000/16,000) × 100% = 125%. Inverting the ratio gives the 80 trap."},
+{t:"L1",q:"The GDP deflator is 120 and nominal GDP is $24,000. Real GDP is:",o:["$20,000","$28,800","$2,000","$22,800"],a:0,e:"Real = nominal / (deflator/100) = 24,000/1.20 = $20,000."},
+{t:"L1",q:"The GDP deflator is 110 and real GDP is $10,000. Nominal GDP is:",o:["$9,090","$11,000","$10,110","$1,100"],a:1,e:"Nominal = real × deflator/100 = 10,000 × 1.10 = $11,000."},
+{t:"L1",q:"Nominal GDP and real GDP both rise 8%. The GDP deflator:",o:["Rises 8%","Is unchanged","Falls 8%","Rises 16%"],a:1,e:"The deflator is the ratio; equal growth leaves it unchanged."},
+{t:"L1",q:"A student says 'the GDP deflator is 116, so inflation is 116%.' The error is that:",o:["The deflator cannot exceed 100","The deflator is an index level; inflation is its percentage change","Inflation is always 16%","The deflator measures unemployment"],a:1,e:"You must compute the percentage change in the deflator to get inflation."},
+{t:"L1",q:"The GDP deflator rose from 120 last year to 125 this year. Inflation was about:",o:["5%","4.17%","25%","1.2%"],a:1,e:"5/120 = 4.17%. Five index points is not a 5% inflation rate."},
+{t:"L1",q:"Which index best captures the price of machinery bought by a local factory?",o:["The CPI","The GDP deflator","Neither","The labour force survey"],a:1,e:"The deflator covers all domestically produced goods, including investment goods."},
+{t:"L1",q:"Which index best captures the price of imported groceries bought by households?",o:["The GDP deflator","The CPI","Both equally","Neither"],a:1,e:"Imported consumer goods can be in the CPI basket."},
+{t:"L1",q:"All prices in the economy double. The GDP deflator:",o:["Stays at 100","Roughly doubles relative to the base year","Falls","Is zero"],a:1,e:"Nominal GDP doubles while real GDP is unchanged, so the deflator doubles."},
+{t:"L1",q:"Prices of domestic output rose 5% and the deflator went from 100 to 105. Which statement is correct?",o:["Inflation was 105%","Prices of domestic output rose 5%","Real GDP rose 5%","The CPI also rose exactly 5%"],a:1,e:"The deflator measures domestic output prices; the CPI may differ because of coverage."},
+{t:"L1",q:"Which is a relative price statement rather than a price-level statement?",o:["The CPI rose 3%","Rent rose faster than transport fares","The price level doubled","Inflation is 2%"],a:1,e:"Comparing one price with others is a relative price statement."},
+{t:"L1",q:"If only your landlord raises rent, the CPI:",o:["Must double","Rises only according to housing's weight in the basket","Falls","Is unaffected by weight"],a:1,e:"The weight of housing determines the impact on the index."},
+{t:"L1",q:"The CPI overstates true inflation partly because it ignores consumers switching to cheaper alternatives. This is called:",o:["Quality adjustment bias","Substitution bias","Deflation","Shoe-leather cost"],a:1,e:"Consumers substituting away from expensive goods reduces their true cost increase."},
+{t:"L1",q:"A laptop's price rises 10% but it is twice as fast as the old model. The CPI treating it as pure inflation will:",o:["Understate inflation","Overstate the pure price increase","Be exactly right","Equal the deflator"],a:1,e:"Ignoring quality improvement overstates the pure price change."},
+{t:"L1",q:"Which situation would make the CPI a poor guide to YOUR cost of living?",o:["You buy exactly the standard basket","You never buy the goods whose prices rose sharply","All prices move together","You live in the base year"],a:1,e:"If your basket differs a lot from the standard one, the CPI misrepresents you."},
+{t:"L1",q:"Which is true of the CPI and the GDP deflator?",o:["They always give identical numbers","They can differ because they cover different goods","The CPI covers all domestic production","The deflator covers imports"],a:1,e:"Different coverage means the two indexes can diverge."},
+{t:"L1",q:"Both the CPI and the GDP deflator are:",o:["Inflation rates","Price index levels","Measures of output","Labour market statistics"],a:1,e:"Both are index levels; their percentage changes are inflation."},
+{t:"L1",q:"A rise in the price of one good with a large CPI weight, compared with a rise in a good with a small weight, will:",o:["Have the same effect on the CPI","Have a larger effect on the CPI","Have no effect","Cause deflation"],a:1,e:"Larger weights produce larger index movements."},
+
+/* ==================== LECTURE 1 — COSTS OF INFLATION & INTEREST ==================== */
+{t:"L1",q:"A bank pays 5% nominal interest while inflation is 2%. The approximate real return is:",o:["7%","3%","2.5%","−3%"],a:1,e:"r ≈ 5 − 2 = 3%. The Fisher equation subtracts inflation."},
+{t:"L1",q:"A bank pays 2% nominal interest while inflation is 5%. The approximate real return is:",o:["7%","3%","−3%","−7%"],a:2,e:"r ≈ 2 − 5 = −3%. You lose purchasing power."},
+{t:"L1",q:"Your fixed deposit earns 4% and inflation turns out to be 1% rather than the 3% you expected. You:",o:["Lose relative to expectations","Gain relative to expectations","Are unaffected","Earn 4% real"],a:1,e:"Lower-than-expected inflation gives a higher real return to the lender."},
+{t:"L1",q:"You borrow at a fixed 4% nominal rate and inflation unexpectedly reaches 6%. Who gains?",o:["You, the borrower","The lender","Neither","The government only"],a:0,e:"Unexpectedly high inflation erodes the real value of the repayment, helping borrowers."},
+{t:"L1",q:"Inflation is expected at 3% and the bank sets a 5% nominal rate. Inflation turns out to be exactly 3%. Who is redistributed to?",o:["Borrowers gain","Lenders lose","Nobody — expected inflation was priced in","The government gains"],a:2,e:"If inflation is fully expected, the nominal rate adjusts and no surprise redistribution occurs."},
+{t:"L1",q:"During high inflation you visit the ATM more often and hold less cash. This reflects:",o:["Shoe-leather costs","Menu costs","Substitution bias","Quality adjustment bias"],a:0,e:"Resources spent economising on cash holdings are shoe-leather costs."},
+{t:"L1",q:"Your salary rises with inflation, pushing you into a higher tax bracket so your real tax burden rises. This is:",o:["Shoe-leather cost","Bracket creep, a tax distortion","Substitution bias","Deflation"],a:1,e:"Bracket creep is a tax distortion caused by inflation."},
+{t:"L1",q:"High inflation makes it hard for you to tell whether a price rise is specific to that good or just general inflation. This is:",o:["Shoe-leather cost","Noise in the price system","Bracket creep","Quality bias"],a:1,e:"Inflation obscures relative price signals."},
+{t:"L1",q:"You are planning retirement 30 years ahead and inflation becomes highly unpredictable. The main cost is:",o:["Shoe-leather costs","Interference with long-run planning","Substitution bias","Deflation"],a:1,e:"Uncertainty makes retirement and investment planning harder."},
+{t:"L1",q:"You keep $10,000 in cash under the mattress while inflation is 3%. Your real return is approximately:",o:["+3%","0%","−3%","+10%"],a:2,e:"Cash earns no nominal interest, so its purchasing power falls with inflation."},
+{t:"L1",q:"Which situation gives a negative real interest rate?",o:["Nominal 5%, inflation 2%","Nominal 3%, inflation 3%","Nominal 1%, inflation 4%","Nominal 8%, inflation 2%"],a:2,e:"1 − 4 = −3%, so the real rate is negative."},
+{t:"L1",q:"A saver with a fixed nominal deposit is hurt most by:",o:["Unexpectedly low inflation","Unexpectedly high inflation","Expected inflation at exactly the contract rate","Deflation"],a:1,e:"Unexpectedly high inflation reduces the real value of the fixed repayment."},
+{t:"L1",q:"Your nominal wage is fixed for three years. Which outcome do you prefer?",o:["Higher-than-expected inflation","Lower-than-expected inflation","Exactly expected inflation","Deflation only"],a:1,e:"Your fixed nominal wage buys more if inflation is lower than expected."},
+{t:"L1",q:"If the nominal interest rate is 0% and inflation is 2%, a saver:",o:["Gains 2% in real terms","Loses about 2% in purchasing power","Breaks even","Earns a 0% real return"],a:1,e:"Real return ≈ 0 − 2 = −2%."},
+{t:"L1",q:"Which of these is NOT a cost of inflation listed in the lecture?",o:["Shoe-leather costs","Noise in the price system","Tax distortions","Substitution bias"],a:3,e:"Substitution bias is a CPI measurement problem, not a cost inflation imposes."},
+{t:"L1",q:"A shop reprints all its menus every week because prices keep changing. This is a cost of:",o:["Deflation","Inflation making prices change frequently","Substitution bias","Quality bias"],a:1,e:"Frequent price changes create real costs for firms."},
+{t:"L1",q:"Two savers have identical fixed nominal deposits. Inflation surprises upward. Who is worse off?",o:["Neither — both are identical","Both are equally worse off relative to expectations","The one with the shorter maturity gains more","Only borrowers are affected"],a:1,e:"Both lenders lose the same real value."},
+{t:"L1",q:"Which statement about the Fisher equation is correct?",o:["It gives an exact identity in all cases","It is an approximation: real ≈ nominal − inflation","It says real = nominal + inflation","It relates GDP and unemployment"],a:1,e:"The lecture uses the subtraction relationship as an approximation."},
+{t:"L1",q:"You lend $1,000 at 5% for one year and inflation is 5%. Your real return is approximately:",o:["5%","10%","0%","−5%"],a:2,e:"r ≈ 5 − 5 = 0%. The nominal gain is exactly eaten by inflation."},
+{t:"L1",q:"Which group benefits most from unexpectedly high inflation?",o:["Lenders with fixed nominal contracts","Workers with fixed nominal wages","Borrowers with fixed nominal debts","Savers holding cash"],a:2,e:"Borrowers repay with money that is worth less than expected."},
+
+/* ==================== LECTURE 1 — iBONDS SCENARIOS ==================== */
+{t:"L1",q:"The six preceding monthly year-on-year Composite CPI changes are 1.0, 1.2, 1.4, 1.6, 1.8 and 2.0 (%). The floating rate is:",o:["9.0%","1.60%","1.50%","0.90%"],a:2,e:"9.0/6 = 1.50%. The 9.0% trap forgets to divide by six."},
+{t:"L1",q:"With that 1.50% floating rate and the 2020 issue's 2% minimum, the iBond pays:",o:["1.50%","3.50%","2.00%","0.50%"],a:2,e:"The minimum is a floor, not an add-on. Use the higher rate: 2.00%."},
+{t:"L1",q:"The six monthly changes are 2.0, 2.2, 2.4, 2.6, 2.8 and 3.0 (%). The floating rate is:",o:["2.50%","15.0%","2.60%","2.40%"],a:0,e:"15.0/6 = 2.50%."},
+{t:"L1",q:"With a floating rate of 2.50% and a 2% minimum, the iBond pays:",o:["4.50%","2.50%","2.00%","0.50%"],a:1,e:"The floating rate is above the floor, so it applies."},
+{t:"L1",q:"The six monthly changes sum to 9.6%. The floating rate is:",o:["9.6%","1.60%","0.96%","16%"],a:1,e:"9.6/6 = 1.60%."},
+{t:"L1",q:"The six monthly changes sum to 6.6% and the 2020 issue's minimum is 2%. The rate used is:",o:["3.10%","1.10%","2.00%","0.55%"],a:2,e:"The floating rate is 1.10%, below the floor, so 2.00% applies."},
+{t:"L1",q:"Monthly year-on-year changes are −0.2, −0.1, 0, 0.1, 0.2 and 0.3 (%), with a 1% minimum. The rate used is:",o:["0.05%","1.00%","0.5%","0%"],a:1,e:"The average is 0.05%, below the floor, so 1.00% applies."},
+{t:"L1",q:"A student computes the iBond rate by averaging the six CPI index levels. This is:",o:["Correct","Wrong — you average the six year-on-year inflation rates","Correct only if inflation is positive","Required by the rule"],a:1,e:"The rule averages the six year-on-year percentage changes, not index levels."},
+{t:"L1",q:"A student adds the 2% minimum to a 3.2% floating rate and gets 5.2%. The error is:",o:["Rounding","The minimum is a floor, not an addition","Using the wrong CPI","The floating rate should be doubled"],a:1,e:"You use the higher of the two, never their sum."},
+{t:"L1",q:"You hold an iBond to maturity. The amount of principal you receive is:",o:["Indexed to the CPI","100% of the face value as a nominal amount","Equal to accumulated interest","The floating rate"],a:1,e:"Only the interest is inflation-linked; principal is repaid at 100% nominal."},
+{t:"L1",q:"An iBond's interest is paid:",o:["Monthly","Quarterly","Twice a year","Only at maturity"],a:2,e:"Interest is paid semi-annually, though rates are quoted annually."},
+{t:"L1",q:"The minimum subscription amount for an iBond is:",o:["HK$1,000","HK$10,000","HK$50,000","HK$100,000"],a:1,e:"The minimum denomination is HK$10,000."},
+{t:"L1",q:"You want to sell your iBond before maturity. You can:",o:["Only redeem it with the government","Trade it on the Stock Exchange of Hong Kong","Only transfer it to family","Not sell it at all"],a:1,e:"iBonds are listed and can be traded on the SEHK."},
+{t:"L1",q:"Inflation turns negative and the six-month average is −0.5%, with a 1% floor. Your iBond pays:",o:["−0.5%","0%","1.00%","0.5%"],a:2,e:"The floor protects you from deflation on the interest rate."},
+{t:"L1",q:"Inflation is running at 4% and the floating rate is 4.1%. Compared with a fixed 2% deposit, the iBond pays:",o:["Less","More","The same","Nothing"],a:1,e:"The iBond tracks inflation; the fixed deposit pays only 2%."},
+{t:"L1",q:"The floating rate averages to 2.4% and the minimum is 2%. The iBond pays:",o:["4.4%","2.40%","2.00%","0.40%"],a:1,e:"The floating rate exceeds the floor, so 2.40% applies."},
+{t:"L1",q:"An iBond's interest protects you against inflation, but its principal:",o:["Also grows with the CPI","Remains a nominal amount","Is paid in shares","Equals the interest"],a:1,e:"Principal is nominal; only interest is inflation-linked."},
+{t:"L1",q:"The 2020 iBond issue compared the floating rate with a minimum of:",o:["1% per year","2% per year","2% per month","0%"],a:1,e:"The 2020 issue had a 2% annual minimum."},
+{t:"L1",q:"Earlier iBond issues described in the supplement had a minimum of:",o:["2%","3%","1%","0.5%"],a:2,e:"Earlier issues used a 1% minimum."},
+{t:"L1",q:"The six monthly changes are 0.6, 0.8, 1.0, 1.2, 1.4 and 1.6 (%), with a 2% minimum. The rate used is:",o:["1.10%","2.00%","3.10%","1.00%"],a:1,e:"The average is 1.10%, below the floor, so 2.00% applies."},
+
+/* ==================== LECTURE 2 — CLASSIFICATION SCENARIOS ==================== */
+{t:"L2",q:"Kenji worked 22 hours last week. He wanted full-time work, the café had none, he checked job boards twice in the past month and could start more work immediately. He is:",o:["Unemployed","Employed but not underemployed","Employed and underemployed","Outside the labour force"],a:2,e:"Under 35 hours, involuntary, and available/seeking — he is underemployed and still in the labour force."},
+{t:"L2",q:"Mei worked 22 hours last week by choice so she could pursue a hobby. She did not seek or want more work. She is:",o:["Underemployed","Unemployed","Employed but not underemployed","Outside the labour force"],a:2,e:"The shortfall must be involuntary. Voluntary part-time work is simply employment."},
+{t:"L2",q:"Sam worked 30 hours involuntarily but neither sought nor was available for more work because he was caring for a sick parent. He is:",o:["Underemployed","Employed but not underemployed","Unemployed","Outside the labour force"],a:1,e:"The seeking-or-available condition fails, so he is employed but not underemployed."},
+{t:"L2",q:"Priya has no job, is available, and stopped applying three months ago because she believes no vacancies exist. Under Hong Kong definitions she is:",o:["Outside the labour force","Unemployed and in the labour force","Underemployed","Employed"],a:1,e:"Hong Kong explicitly counts discouraged workers as unemployed."},
+{t:"L2",q:"Daniel has no job and is available. He has not searched because he has arranged to start a new job next month. He is:",o:["Outside the labour force","Employed","Unemployed under Hong Kong definitions","Underemployed"],a:2,e:"The 'arranged to start a job later' exception counts him as unemployed."},
+{t:"L2",q:"Aisha is jobless. She had been actively searching but was in hospital during the enumeration week. She is:",o:["Outside the labour force","Unemployed under Hong Kong definitions","Employed","Underemployed"],a:1,e:"Sickness making a searcher temporarily unavailable does not remove unemployed status."},
+{t:"L2",q:"Mr Chan is 68, retired, does not want work and has not looked. He is:",o:["Unemployed","Underemployed","Outside the labour force","Employed"],a:2,e:"He is neither employed nor unemployed, so he is outside the labour force."},
+{t:"L2",q:"Lily is a full-time student who works 12 paid hours a week at a bookshop. She is:",o:["Outside the labour force because she is a student","Employed and in the labour force","Underemployed","Unemployed"],a:1,e:"Labels such as 'student' are irrelevant. Paid work means employed."},
+{t:"L2",q:"A 14-year-old helps at the family shop on weekends. In Hong Kong labour statistics he is:",o:["Employed","Unemployed","Outside the labour force, since the reference population is aged 15+","Underemployed"],a:2,e:"The reference population starts at age 15."},
+{t:"L2",q:"A person serving a prison sentence is:",o:["In the labour force","Excluded because the population is land-based and non-institutional","Unemployed","Underemployed"],a:1,e:"Institutional populations are outside the reference population."},
+{t:"L2",q:"Tom works 20 hours involuntarily and searched for extra work in the past 30 days. Which statement is FALSE?",o:["He is underemployed","He is counted as employed","He is in the labour force","He is counted as unemployed"],a:3,e:"Underemployment and unemployment are mutually exclusive. He is employed."},
+{t:"L2",q:"A full-time worker loses his job and takes a 15-hour part-time job while still searching full-time. Compared with before:",o:["The unemployment rate falls and underemployment may rise","The unemployment rate rises","Both rates fall","Participation rises"],a:0,e:"He moves from unemployed to employed but is involuntarily under 35 hours."},
+{t:"L2",q:"Forty unemployed people stop searching because they believe no jobs exist. In Hong Kong this means:",o:["They leave the labour force","They remain unemployed, so nothing changes here","They become employed","They become underemployed"],a:1,e:"Hong Kong already counts discouraged workers as unemployed."},
+{t:"L2",q:"Which person is definitely NOT in the labour force?",o:["A discouraged worker available for work","A jobless person expecting to return to their old job","A person unavailable for work because of full-time childcare","A person on paid holiday from their job"],a:2,e:"Unavailability removes them from the labour force. The others are inside."},
+{t:"L2",q:"A person is jobless, available, has not searched, and expects to return to their original job. They are:",o:["Outside the labour force","Unemployed under Hong Kong definitions","Employed","Underemployed"],a:1,e:"This is an explicit Hong Kong exception."},
+{t:"L2",q:"A worker on paid holiday during the survey week is:",o:["Unemployed","Employed","Outside the labour force","Underemployed"],a:1,e:"Temporary absence from an existing job is still employment."},
+{t:"L2",q:"A part-time worker who chose her hours to study is:",o:["Underemployed","Unemployed","Employed but not underemployed","Outside the labour force"],a:2,e:"Voluntary part-time work does not meet the involuntary condition."},
+{t:"L2",q:"A worker involuntarily works exactly 35 hours and wants more. He is:",o:["Underemployed","Employed and not underemployed, since the rule is 'less than 35 hours'","Unemployed","Outside the labour force"],a:1,e:"Exactly 35 hours does not satisfy the threshold."},
+{t:"L2",q:"A worker involuntarily works 34 hours and is available for more work. He is:",o:["Underemployed","Not underemployed because 34 is close to 35","Unemployed","Outside the labour force"],a:0,e:"Below 35 plus availability satisfies the rule."},
+{t:"L2",q:"A worker involuntarily works 20 hours and is available for more work but did not search. He is:",o:["Underemployed, because availability alone satisfies the OR condition","Employed but not underemployed","Unemployed","Outside the labour force"],a:0,e:"The condition is 'sought OR available', so availability is enough."},
+{t:"L2",q:"A worker involuntarily works 20 hours and searched for more work but was not available this week. He is:",o:["Underemployed, because searching alone satisfies the OR condition","Employed but not underemployed","Unemployed","Outside the labour force"],a:0,e:"Searching satisfies the OR condition, so he is underemployed."},
+{t:"L2",q:"A worker voluntarily works 40 hours but wants 50. He is:",o:["Underemployed","Unemployed","Employed and not underemployed","Outside the labour force"],a:2,e:"He is above the 35-hour threshold and the shortfall is voluntary."},
+{t:"L2",q:"A graduate spends a year travelling and is not seeking work. She is:",o:["Unemployed","Outside the labour force","Underemployed","Employed"],a:1,e:"Not available or seeking, so outside the labour force."},
+{t:"L2",q:"A person volunteers at a charity for no pay and is not seeking paid work. He is:",o:["Employed","Unemployed","Outside the labour force","Underemployed"],a:2,e:"Unpaid voluntary work is not employment in the labour force definition."},
+{t:"L2",q:"A worker on unpaid leave but still holding her job is:",o:["Unemployed","Employed","Outside the labour force","Underemployed"],a:1,e:"A job attachment means employment, even during unpaid leave."},
+{t:"L2",q:"A foreign domestic helper working in Hong Kong is:",o:["Outside the labour force","Employed and in the labour force","Unemployed","Underemployed"],a:1,e:"Paid work means employed, regardless of nationality."},
+{t:"L2",q:"A retiree who has started actively looking for part-time work is:",o:["Outside the labour force","Unemployed","Employed","Underemployed"],a:1,e:"Searching and available makes them unemployed, whatever their age label."},
+{t:"L2",q:"A person working 3 paid hours a week who wants more hours and has searched is:",o:["Employed but not underemployed","Underemployed","Unemployed","Outside the labour force"],a:1,e:"Under 35 hours, involuntary, and searching — underemployed."},
+{t:"L2",q:"Which statement about an underemployed person is TRUE?",o:["They are excluded from the labour force","They are counted as unemployed","They are employed and remain in the labour force","They are outside the labour force"],a:2,e:"Underemployment is a subset of employment, the most common confusion in the topic."},
+{t:"L2",q:"A person who had a job offer and starts next month but is not yet working is:",o:["Outside the labour force","Unemployed under Hong Kong definitions","Employed","Underemployed"],a:1,e:"The arranged-start exception counts them as unemployed."},
+{t:"L2",q:"A discouraged worker who later becomes unavailable for work is:",o:["Still unemployed","Outside the labour force","Employed","Underemployed"],a:1,e:"Availability is required; without it they leave the labour force."},
+{t:"L2",q:"Which person is inside the labour force?",o:["A retiree not seeking work","A homemaker not seeking work","A discouraged worker who is available for work","A full-time student not seeking work"],a:2,e:"Hong Kong counts discouraged workers as unemployed, so they are in the labour force."},
+{t:"L2",q:"A worker loses her job and immediately starts searching. She is:",o:["Outside the labour force","Unemployed","Employed","Underemployed"],a:1,e:"No job, available, and searching — unemployed."},
+{t:"L2",q:"A person doing 25 hours involuntarily, who searched last week and could start immediately, is:",o:["Unemployed","Employed and underemployed","Outside the labour force","Employed but not underemployed"],a:1,e:"All three underemployment conditions are met."},
+
+/* ==================== LECTURE 2 — RATES ==================== */
+{t:"L2",q:"A small town has a labour force of 2,000 and 100 unemployed. The unemployment rate is:",o:["4%","5%","10%","2%"],a:1,e:"100/2,000 = 5%."},
+{t:"L2",q:"Employment is 1,900 and unemployment is 100. The unemployment rate is:",o:["5%","5.26%","4.76%","10%"],a:0,e:"Labour force = 2,000, so 100/2,000 = 5%. Dividing by employment gives the 5.26% trap."},
+{t:"L2",q:"A city has 4,000 people aged 15+ and a labour force of 2,500. The participation rate is:",o:["62.5%","40%","160%","6.25%"],a:0,e:"2,500/4,000 = 62.5%."},
+{t:"L2",q:"In a district, 60 people are underemployed and the labour force is 2,000. The underemployment rate is:",o:["3%","3.16%","1.5%","6%"],a:0,e:"60/2,000 = 3%. The denominator is the labour force."},
+{t:"L2",q:"In the same district, employment is 1,900 and 60 are underemployed. Dividing 60 by employment gives 3.16%. Why is this wrong?",o:["It is not wrong","The denominator must be the labour force, not employment","Underemployment uses the population","It should be divided by 1,960"],a:1,e:"Both unemployment and underemployment rates use the labour force as denominator."},
+{t:"L2",q:"Thirty unemployed people find jobs and the labour force is unchanged. The unemployment rate:",o:["Rises","Falls","Is unchanged","Becomes zero"],a:1,e:"The numerator shrinks while the denominator stays put."},
+{t:"L2",q:"Fifty people outside the labour force start actively searching. The labour force:",o:["Falls","Is unchanged","Rises","Doubles"],a:2,e:"They enter the labour force as unemployed."},
+{t:"L2",q:"Fifty unemployed people give up and become unavailable for work. The labour force:",o:["Rises","Falls","Is unchanged","Doubles"],a:1,e:"They leave the labour force entirely."},
+{t:"L2",q:"Fifty underemployed workers move into full-time jobs. The labour force:",o:["Falls","Is unchanged","Rises","Doubles"],a:1,e:"They were already employed, so membership does not change."},
+{t:"L2",q:"Twenty outside the labour force start searching. What happens to the unemployment rate?",o:["It necessarily falls","It may rise, because they enter as unemployed","It is unchanged","It becomes zero"],a:1,e:"Both numerator and denominator increase, so the rate can rise."},
+{t:"L2",q:"If the population aged 15+ rises but the labour force is unchanged, the participation rate:",o:["Rises","Falls","Is unchanged","Doubles"],a:1,e:"A larger denominator with a constant numerator lowers the rate."},
+{t:"L2",q:"If the labour force grows faster than employment, the unemployment rate:",o:["Falls","Rises","Is unchanged","Becomes zero"],a:1,e:"Unemployment grows relative to the labour force."},
+{t:"L2",q:"A city has 90 unemployed and 1,710 employed. The unemployment rate is:",o:["5%","5.26%","4.5%","9%"],a:0,e:"LF = 1,800, so 90/1,800 = 5%."},
+{t:"L2",q:"Employment is 1,425, unemployment 75, underemployment 45, population 2,400. Which triple is right?",o:["Participation 62.5%, unemployment 5%, underemployment 3%","Participation 60%, unemployment 5%, underemployment 3%","Participation 62.5%, unemployment 5.26%, underemployment 3.16%","Participation 62.5%, unemployment 3%, underemployment 5%"],a:0,e:"LF = 1,500; 1,500/2,400 = 62.5%; 75/1,500 = 5%; 45/1,500 = 3%."},
+{t:"L2",q:"An unemployed person takes a job. Which rate definitely falls?",o:["The participation rate","The unemployment rate","The underemployment rate","The population"],a:1,e:"The unemployment numerator shrinks; the participation rate is unchanged."},
+{t:"L2",q:"An employed person becomes unemployed. The participation rate:",o:["Rises","Falls","Is unchanged","Doubles"],a:2,e:"They stay inside the labour force, so the participation rate does not move."},
+{t:"L2",q:"A worker moves from 20 hours to 40 hours a week. Which rate is most directly affected?",o:["The unemployment rate","The underemployment rate","The participation rate","The population growth rate"],a:1,e:"He leaves underemployment; he was never unemployed."},
+{t:"L2",q:"Which change leaves the participation rate unchanged?",o:["An unemployed person finds work","A person outside the labour force starts searching","A student graduates and starts looking for work","A worker retires and stops looking"],a:0,e:"Only movements across the labour force boundary change the participation rate."},
+{t:"L2",q:"Labour force 3,000, population aged 15+ 5,000, unemployed 150. Participation and unemployment rates are:",o:["60% and 5%","60% and 5.26%","50% and 5%","62.5% and 3%"],a:0,e:"3,000/5,000 = 60%; 150/3,000 = 5%."},
+{t:"L2",q:"A person outside the labour force starts a job directly. The participation rate:",o:["Falls","Rises","Is unchanged","Becomes zero"],a:1,e:"They enter the labour force as employed, raising both numerator and participation."},
+
+/* ==================== LECTURE 2 — TYPES OF UNEMPLOYMENT ==================== */
+{t:"L2",q:"A worker quits to relocate to another district and searches for a local job. This is:",o:["Structural unemployment","Cyclical unemployment","Frictional unemployment","Outside the labour force"],a:2,e:"Voluntary short-term search while matching is frictional."},
+{t:"L2",q:"A printing technician's skills no longer match digital-publishing jobs. This is:",o:["Frictional unemployment","Structural unemployment","Cyclical unemployment","Underemployment"],a:1,e:"Persistent skill mismatch at normal output is structural."},
+{t:"L2",q:"Hotels lay off staff because a recession reduces bookings. This is:",o:["Frictional unemployment","Structural unemployment","Cyclical unemployment","The natural rate"],a:2,e:"Recession-driven layoffs are cyclical."},
+{t:"L2",q:"A fresh graduate spends two months applying for jobs. This is:",o:["Structural unemployment","Cyclical unemployment","Frictional unemployment","Outside the labour force"],a:2,e:"Short-term search while matching is frictional."},
+{t:"L2",q:"New arrivals cannot find work because of language barriers. This is:",o:["Frictional","Structural","Cyclical","Seasonal"],a:1,e:"Language barriers are a structural cause."},
+{t:"L2",q:"A factory installs robots and lays off assembly workers who cannot do other jobs. This is:",o:["Frictional","Structural","Cyclical","The natural rate"],a:1,e:"Automation creating persistent skill mismatch is structural."},
+{t:"L2",q:"A construction slowdown during a recession leaves builders idle. This is:",o:["Frictional","Structural","Cyclical","Voluntary"],a:2,e:"Recession-related job loss is cyclical."},
+{t:"L2",q:"Discrimination against a group of jobseekers contributes to:",o:["Frictional unemployment","Structural unemployment","Cyclical unemployment","Underemployment only"],a:1,e:"Discrimination is listed as a structural cause."},
+{t:"L2",q:"At full employment, which unemployment types remain?",o:["Only cyclical","Frictional and structural","Only structural","None"],a:1,e:"Full employment means no cyclical unemployment only."},
+{t:"L2",q:"During an economic boom, cyclical unemployment is:",o:["Positive","Zero","Negative","Undefined"],a:2,e:"Output above potential means u below u*, so cyclical unemployment is negative."},
+{t:"L2",q:"Which statement about full employment is correct?",o:["Unemployment is zero","Search and structural unemployment can still exist","Only cyclical unemployment exists","The participation rate is 100%"],a:1,e:"Full employment is zero cyclical unemployment, not zero unemployment."},
+{t:"L2",q:"Job search that takes time is beneficial because:",o:["It raises the CPI","It improves job matches in a dynamic economy","It lowers potential output","It increases the natural rate"],a:1,e:"Better matches are the social benefit of search unemployment."},
+{t:"L2",q:"Which is NOT one of the three unemployment types in the lecture?",o:["Frictional","Structural","Cyclical","Seasonal"],a:3,e:"The lecture covers frictional, structural and cyclical only."},
+{t:"L2",q:"A worker laid off in a recession and searching for work is:",o:["Frictionally unemployed","Cyclically unemployed","Structurally unemployed","Outside the labour force"],a:1,e:"Recession-driven job loss is cyclical, even while searching."},
+{t:"L2",q:"A firm's industry disappears permanently because of technological change. The resulting unemployment is:",o:["Frictional","Cyclical","Structural","Voluntary"],a:2,e:"Permanent mismatch is structural."},
+
+/* ==================== LECTURE 2 — GAPS & PHILLIPS ==================== */
+{t:"L2",q:"Potential output is $1,000 and actual output is $950. The economy has:",o:["An expansionary gap of 50","A recessionary gap of 50","A zero gap","A negative output gap"],a:1,e:"Y* − Y = +50, a positive (recessionary) gap."},
+{t:"L2",q:"Potential output is $1,000 and actual output is $1,050. The output gap Y* − Y is:",o:["+50","−50","0","100"],a:1,e:"1,000 − 1,050 = −50, an expansionary gap."},
+{t:"L2",q:"Actual unemployment is 6.2% and the natural rate is 4.5%. Cyclical unemployment is:",o:["+1.7 percentage points","−1.7 percentage points","10.7 percentage points","Zero"],a:0,e:"6.2 − 4.5 = +1.7, consistent with a recessionary gap."},
+{t:"L2",q:"Actual unemployment is 3.8% and the natural rate is 4.5%. The economy is likely:",o:["In a recessionary gap","In an expansionary gap","At full employment","With zero frictional unemployment"],a:1,e:"u below u* means output above potential."},
+{t:"L2",q:"A student says 'the output gap is Y − Y*.' Why does this matter?",o:["It gives the same sign","It flips the sign, so recessionary gaps look positive","It is undefined","It equals cyclical unemployment"],a:1,e:"The lecture defines the gap as Y* − Y, so the sign matters."},
+{t:"L2",q:"In an expansionary gap, excess demand:",o:["Puts downward pressure on prices","Puts upward pressure on prices","Leaves prices unchanged","Causes deflation"],a:1,e:"Output above potential creates inflationary pressure."},
+{t:"L2",q:"In a recessionary gap:",o:["Capital and labour are underused","Output is above normal","Unemployment is below the natural rate","Prices are falling fast"],a:0,e:"Resources are underused when actual output is below potential."},
+{t:"L2",q:"If actual output equals potential output, then:",o:["u is above u*","u equals u* and cyclical unemployment is zero","u is below u*","Unemployment is zero"],a:1,e:"At normal output the actual rate equals the natural rate."},
+{t:"L2",q:"Along the short-run Phillips curve in the lecture, lower inflation is associated with:",o:["Lower unemployment","Higher unemployment","No change in unemployment","Higher potential output"],a:1,e:"The short-run trade-off runs the other way from higher inflation."},
+{t:"L2",q:"Which statement about the Phillips curve is correct?",o:["It is a permanent long-run rule","It is a short-run trade-off, not an unconditional relationship","It links GDP and the CPI","It measures potential output"],a:1,e:"The lecture stresses that it is a short-run relationship."},
+{t:"L2",q:"Which is NOT part of the natural rate of unemployment?",o:["Frictional unemployment","Structural unemployment","Cyclical unemployment","Job-search unemployment"],a:2,e:"The natural rate excludes the cyclical component."},
+{t:"L2",q:"A student says 'Y* is the maximum the economy can ever produce.' The error is that:",o:["Y* is actual output","Y* uses resources at normal rates, not maximum rates","Y* is nominal GDP","Y* equals u*"],a:1,e:"Potential output is based on normal utilisation, not a physical maximum."},
+{t:"L2",q:"If actual unemployment equals the natural rate, the output gap is:",o:["Positive","Negative","Zero","Undefined"],a:2,e:"u = u* corresponds to Y = Y*."},
+{t:"L2",q:"During an overheating boom, unemployment is:",o:["Above the natural rate","Below the natural rate","Equal to the natural rate","Zero"],a:1,e:"Overheating means output above potential and u below u*."},
+{t:"L2",q:"Potential output rises but actual output stays the same. The economy:",o:["Moves toward an expansionary gap","Moves toward a recessionary gap","Stays at full employment","Has zero cyclical unemployment"],a:1,e:"Y* rises while Y does not, so the positive gap widens."},
+{t:"L2",q:"In a recessionary gap, the unemployment rate is:",o:["Below the natural rate","Above the natural rate","Equal to the natural rate","Zero"],a:1,e:"Output below potential means labour is underused."},
+{t:"L2",q:"Full-employment output is another name for:",o:["Nominal GDP","Actual output Y","Potential output Y*","The output gap"],a:2,e:"Y* is also called potential real GDP or full-employment output."},
+{t:"L2",q:"If Y > Y*, then u − u* is:",o:["Positive","Negative","Zero","Undefined"],a:1,e:"Output above potential means unemployment below the natural rate."},
+{t:"L2",q:"A recession pushes output 5% below potential. Which is most consistent?",o:["Unemployment below the natural rate","Unemployment above the natural rate","Zero cyclical unemployment","An expansionary gap"],a:1,e:"A recessionary gap raises unemployment above u*."},
+{t:"L2",q:"The short-run Phillips curve links:",o:["GDP and the CPI","Inflation and unemployment","Nominal and real interest","Exports and imports"],a:1,e:"It relates inflation to unemployment in the short run."},
+
+/* ==================== LECTURE 3 — PRODUCTION & VALUE ADDED ==================== */
+{t:"L3",q:"You buy a newly made desk from a local carpenter. This counts in GDP as:",o:["Nothing","Current domestic production","A transfer","Inventory investment"],a:1,e:"A newly produced final good sold to a household is current output."},
+{t:"L3",q:"You resell your old economics textbook to a junior student. This counts in GDP as:",o:["Consumption","Nothing, because it is not current production","Investment","A service"],a:1,e:"Resales of existing goods are excluded."},
+{t:"L3",q:"An agent earns a $50,000 commission on the sale of an existing flat. GDP includes:",o:["The full flat price","The $50,000 commission only","Nothing","The flat price minus the commission"],a:1,e:"The flat is not new production, but the agent's service is."},
+{t:"L3",q:"You buy shares in a listed company. This counts in GDP as:",o:["Investment","Nothing, since it is a transfer of ownership of a financial asset","Consumption","Net exports"],a:1,e:"Share trades do not create current output."},
+{t:"L3",q:"The government pays you a $5,000 pension. This counts in GDP as:",o:["Government purchases","Nothing, because it is a transfer payment","Consumption","Investment"],a:1,e:"Transfers are excluded from government purchases and GDP."},
+{t:"L3",q:"A foreign-owned firm produces furniture in Hong Kong. This output is:",o:["In the foreign country's GDP only","Part of Hong Kong GDP","Excluded from both","Counted as imports"],a:1,e:"GDP uses production location, not ownership."},
+{t:"L3",q:"A Hong Kong firm builds a factory in Shenzhen. The factory's output is:",o:["Part of Hong Kong GDP","Part of Shenzhen's GDP","Part of both equally","Excluded entirely"],a:1,e:"Production abroad belongs to the host economy's GDP."},
+{t:"L3",q:"A desk is produced in 2026 but sold in 2027. It counts in:",o:["2027 GDP","2026 GDP as inventory investment","Both years","Neither year"],a:1,e:"GDP uses the time of production, and unsold output is inventory investment."},
+{t:"L3",q:"A firm's revenue is $500 and purchased inputs are $200. Value added is:",o:["$500","$300","$700","$200"],a:1,e:"500 − 200 = $300."},
+{t:"L3",q:"A firm's revenue is $800 and inputs are $500. Value added is:",o:["$800","$500","$300","$1,300"],a:2,e:"800 − 500 = $300."},
+{t:"L3",q:"Adding together all firms' revenues instead of value added will:",o:["Give GDP","Double count intermediate goods","Understate GDP","Equal net exports"],a:1,e:"In the lecture example revenues sum to $1,500 while GDP is $800."},
+{t:"L3",q:"Timber worth $200 is produced in 2025 and the finished desk in 2026. How much enters 2026 GDP?",o:["$800","$500","Only the 2026 value added","$1,500"],a:2,e:"The timber already entered 2025 GDP; only new 2026 value added counts."},
+{t:"L3",q:"A bakery buys flour to make bread. The flour is:",o:["A final good","An intermediate good, not counted separately","A capital good","An export"],a:1,e:"Intermediate inputs are counted inside the final good's value."},
+{t:"L3",q:"Which is a final good?",o:["Steel bought by a car maker","Flour bought by a bakery","A car bought by a household","Timber bought by a workshop"],a:2,e:"The other three are inputs purchased by firms."},
+{t:"L3",q:"You buy an imported television. The effect on GDP is:",o:["Consumption rises and GDP rises","Consumption rises but imports rise by the same amount, so GDP is unchanged","Net exports rise","Investment rises"],a:1,e:"C rises but the import subtracts from NX, offsetting it."},
+{t:"L3",q:"A firm builds a new factory. This is:",o:["Consumption","Business fixed investment","Inventory investment","Government purchases"],a:1,e:"New plant and equipment by firms is business fixed investment."},
+{t:"L3",q:"A firm produces goods it cannot sell this year. These count as:",o:["Nothing","Inventory investment","Consumption","Net exports"],a:1,e:"Unsold output is inventory investment in the year produced."},
+{t:"L3",q:"Inventories fall from 100 to 70 over the year. Inventory investment is:",o:["+30","−30","+100","−100"],a:1,e:"Only the change counts, and a fall is negative investment."},
+{t:"L3",q:"A civil servant's salary counts in GDP as:",o:["A transfer","Government purchases","Consumption","Investment"],a:1,e:"Civil servants provide current services, so their pay is G."},
+{t:"L3",q:"Hong Kong-made goods sold to a foreign buyer count as:",o:["Imports","Exports and raise GDP","Consumption","Inventory"],a:1,e:"Exports are domestically produced and sold abroad, adding to NX."},
+{t:"L3",q:"You cook dinner at home for your family. This counts in GDP as:",o:["Consumption","Nothing, because it is nonmarket household production","Investment","Government purchases"],a:1,e:"Unpaid household production is outside measured GDP."},
+{t:"L3",q:"You pay a professional to renovate your kitchen. This counts as:",o:["Nothing","A current service included in GDP","Investment","A transfer"],a:1,e:"The renovation service is newly produced this period."},
+{t:"L3",q:"A second-hand car dealer sells a used car for $80,000 and earns a $6,000 commission. GDP includes:",o:["$80,000","$6,000","$86,000","Nothing"],a:1,e:"Only the dealer's service is current output."},
+{t:"L3",q:"A firm buys steel to make washing machines. The steel is:",o:["Counted separately in GDP","Intermediate, counted inside the washing machines","A final good","Investment"],a:1,e:"Counting it separately would double count."},
+{t:"L3",q:"A household buys a new car. This counts as:",o:["Consumption","Investment","Government purchases","Net exports"],a:0,e:"Consumer durables bought by households are consumption."},
+{t:"L3",q:"A company buys new delivery trucks. This counts as:",o:["Consumption","Investment","Government purchases","Inventory"],a:1,e:"Business fixed investment by firms."},
+{t:"L3",q:"A university student pays tuition to a local university. This counts as:",o:["Nothing","A consumption service","Investment","Government purchases"],a:1,e:"Education services bought by households are consumption."},
+{t:"L3",q:"A firm sells goods out of its inventory this year. GDP this year:",o:["Rises by the full sale value","Is unaffected overall, since consumption rises and inventory investment falls equally","Falls","Doubles"],a:1,e:"The goods were already counted when produced; only the composition changes."},
+{t:"L3",q:"A tourist from Japan spends money in a Hong Kong hotel. This counts as:",o:["An import","An export of services, raising GDP","A transfer","Nothing"],a:1,e:"Foreign spending on domestic services is an export."},
+{t:"L3",q:"A Hong Kong resident holidays in Thailand. This counts as:",o:["An export","An import, reducing net exports","Consumption only","Nothing"],a:1,e:"Spending abroad on foreign services is an import."},
+
+/* ==================== LECTURE 3 — EXPENDITURE APPROACH ==================== */
+{t:"L3",q:"C = 1,100, I = 430, G = 250 and NX = 20. GDP is:",o:["1,780","1,800","1,820","1,750"],a:1,e:"1,100 + 430 + 250 + 20 = 1,800."},
+{t:"L3",q:"Business fixed investment is 180, new housing 220 and inventories rise from 70 to 100. Investment I is:",o:["400","430","500","470"],a:1,e:"180 + 220 + 30 = 430. Using the ending stock of 100 would be wrong."},
+{t:"L3",q:"New housing purchased by a household is classified as:",o:["Consumption","Investment","Government purchases","Net exports"],a:1,e:"Residential investment is part of I."},
+{t:"L3",q:"A household buys a refrigerator. This is:",o:["Investment","Consumption","Government purchases","Net exports"],a:1,e:"Consumer durables are part of consumption."},
+{t:"L3",q:"The government pays out welfare transfers. This is:",o:["Included in G","Excluded from GDP","Included in investment","Included in net exports"],a:1,e:"Transfers are not purchases of final goods and services."},
+{t:"L3",q:"If exports fall while imports are unchanged, GDP:",o:["Rises","Falls, because net exports fall","Is unchanged","Doubles"],a:1,e:"NX = exports − imports, so lower exports reduce GDP."},
+{t:"L3",q:"Which component enters GDP with a negative sign?",o:["Consumption","Investment","Imports","Government purchases"],a:2,e:"Imports are subtracted in net exports."},
+{t:"L3",q:"If net exports are negative, GDP is:",o:["Higher than C + I + G","Lower than C + I + G","Equal to C + I + G","Undefined"],a:1,e:"A negative NX reduces the total."},
+{t:"L3",q:"You buy a domestically produced phone. GDP:",o:["Is unchanged","Rises because consumption rises","Falls","Rises but net exports fall equally"],a:1,e:"With no import involved, consumption adds directly to GDP."},
+{t:"L3",q:"The government builds a new highway. This is:",o:["Consumption","Government purchases","Investment","Net exports"],a:1,e:"Government purchases of final goods and services."},
+{t:"L3",q:"A firm exports HK-made clothing. This is:",o:["Consumption","Investment","Net exports","Government purchases"],a:2,e:"Exports raise NX."},
+{t:"L3",q:"A company buys new software licences for production. This is best classified as:",o:["Consumption","Business fixed investment","Government purchases","Inventory"],a:1,e:"Firms' purchases of productive assets are investment."},
+{t:"L3",q:"An existing flat changes hands for $6m, with a $60,000 agent fee. GDP includes:",o:["$6m","$60,000","$6.06m","Nothing"],a:1,e:"Only the newly produced agent service counts."},
+{t:"L3",q:"A household buys a flat in a newly completed building. GDP includes:",o:["Nothing, because housing is an asset","The flat as residential investment","Only the agent's fee","A transfer"],a:1,e:"New housing is residential investment."},
+{t:"L3",q:"A government salary payment to a teacher is:",o:["A transfer","Part of G","Consumption","Investment"],a:1,e:"Teaching is a current service provided by government."},
+{t:"L3",q:"A firm's inventory rises from $70 to $100. GDP counts:",o:["$100","$30","$70","Nothing"],a:1,e:"Only the change of $30 is counted."},
+{t:"L3",q:"Which is excluded from government purchases?",o:["A new public hospital","Civil servants' salaries","Pensions paid to retirees","Road maintenance"],a:2,e:"Pensions are transfers, not purchases."},
+{t:"L3",q:"GDP = C + I + G + NX. If imports exceed exports, NX is:",o:["Positive","Negative","Zero","Equal to G"],a:1,e:"Exports minus imports is negative when imports are larger."},
+{t:"L3",q:"A Hong Kong resident buys a Japanese camera. This affects GDP by:",o:["Raising C and lowering NX equally, so no change","Raising GDP","Lowering GDP by the full price","Raising investment"],a:0,e:"Consumption rises but the import offsets it in net exports."},
+{t:"L3",q:"Which of these counts as investment in GDP?",o:["Buying shares","Buying an existing house","Building a new factory","Paying a pension"],a:2,e:"Only new productive capital is investment."},
+{t:"L3",q:"A bakery buys a new oven. This is:",o:["Consumption","Investment","Intermediate good","Government purchases"],a:1,e:"Capital equipment bought by a firm is business fixed investment."},
+{t:"L3",q:"A firm's unsold output at year-end is:",o:["Excluded from GDP","Counted as inventory investment","Counted as consumption","Counted as an export"],a:1,e:"Unsold production is still production and enters GDP as inventory investment."},
+{t:"L3",q:"Government spending on a new bridge and a pension payment differ because:",o:["Both count in G","Only the bridge is a purchase of final output","Only the pension counts in G","Neither counts in GDP"],a:1,e:"The bridge is a purchase of output; the pension is a transfer."},
+{t:"L3",q:"If consumption rises by 100 and imports rise by 100, GDP:",o:["Rises 200","Is unchanged","Falls 100","Rises 100"],a:1,e:"The consumption increase is offset exactly by the import in NX."},
+{t:"L3",q:"A local firm sells furniture to a hotel in Macau. This is:",o:["Consumption","An export","An import","Government purchases"],a:1,e:"Goods sold abroad are exports."},
+
+/* ==================== LECTURE 3 — INCOME APPROACH ==================== */
+{t:"L3",q:"A worker's wages are classified in the income approach as:",o:["Capital income","Labour income","A transfer","Net exports"],a:1,e:"Wages and salaries are labour income."},
+{t:"L3",q:"A landlord's rental receipts are classified as:",o:["Labour income","Capital income","A transfer","Government purchases"],a:1,e:"Rent is capital income."},
+{t:"L3",q:"A musician's royalty payments are:",o:["Labour income","Capital income","A transfer","Consumption"],a:1,e:"Royalties are capital income."},
+{t:"L3",q:"A self-employed taxi driver's income is classified as:",o:["Capital income","Labour income","A transfer","Net exports"],a:1,e:"Self-employment income is labour income in the lecture's classification."},
+{t:"L3",q:"Interest earned by a bondholder is classified as:",o:["Labour income","Capital income","A transfer","Government purchases"],a:1,e:"Interest is capital income."},
+{t:"L3",q:"A company's profits are classified as:",o:["Labour income","Capital income","A transfer","Consumption"],a:1,e:"Profits are capital income."},
+{t:"L3",q:"If labour income is 600 and capital income is 400, GDP under the income approach is:",o:["200","1,000","600","400"],a:1,e:"600 + 400 = 1,000."},
+{t:"L3",q:"The production, expenditure and income approaches:",o:["Measure different things","All measure the same economic activity","Always give different answers","Apply only to nominal GDP"],a:1,e:"They are three views of the same output."},
+{t:"L3",q:"Which is NOT part of the simplified income approach in the lecture?",o:["Labour income","Capital income","Transfer payments","Profits"],a:2,e:"Transfers are not income generated by production."},
+{t:"L3",q:"The income approach is useful because it links production to:",o:["The income it generates","The price level","The unemployment rate","Net exports"],a:0,e:"It shows the income created by producing output."},
+
+/* ==================== LECTURE 3 — REAL VS NOMINAL ==================== */
+{t:"L3",q:"Real GDP values output using:",o:["Current-year prices","Base-year prices","The CPI basket","The GDP deflator"],a:1,e:"Real GDP holds prices fixed at base-year levels."},
+{t:"L3",q:"Nominal GDP values output using:",o:["Base-year prices","Current-year prices","Constant prices","The labour force"],a:1,e:"Nominal GDP uses the prices prevailing in the year measured."},
+{t:"L3",q:"In the base year:",o:["Real GDP exceeds nominal GDP","Real GDP equals nominal GDP","Nominal GDP is zero","The deflator is zero"],a:1,e:"With base-year prices the two are identical."},
+{t:"L3",q:"2025: 10 desks at $800 and 20 sessions at $200. 2026: 12 desks at $900 and 24 sessions at $250. Nominal GDP in 2026 is:",o:["$14,400","$16,800","$12,000","$15,000"],a:1,e:"12×900 + 24×250 = 10,800 + 6,000 = $16,800."},
+{t:"L3",q:"Using the same data, real GDP in 2026 at 2025 prices is:",o:["$16,800","$14,400","$12,000","$15,000"],a:1,e:"12×800 + 24×200 = 9,600 + 4,800 = $14,400."},
+{t:"L3",q:"Using the same data, nominal GDP growth from 2025 to 2026 is:",o:["20%","40%","16.8%","12%"],a:1,e:"16,800/12,000 − 1 = 40%."},
+{t:"L3",q:"Using the same data, real GDP growth is:",o:["20%","40%","16.8%","25%"],a:0,e:"14,400/12,000 − 1 = 20%."},
+{t:"L3",q:"Using the same data, the GDP deflator in 2026 is about:",o:["116.7","85.7","1.167%","144"],a:0,e:"(16,800/14,400) × 100% = 116.7%."},
+{t:"L3",q:"If prices double and quantities are unchanged:",o:["Nominal and real GDP both double","Nominal GDP doubles but real GDP is unchanged","Real GDP doubles but nominal is unchanged","Neither changes"],a:1,e:"Real GDP uses base-year prices, so it does not react to the price change."},
+{t:"L3",q:"If quantities double and prices are unchanged:",o:["Only real GDP doubles","Only nominal GDP doubles","Both double","Neither changes"],a:2,e:"More output raises both measures equally when prices are fixed."},
+{t:"L3",q:"If real GDP rises while nominal GDP is unchanged, prices must have:",o:["Risen","Fallen","Stayed the same","Doubled"],a:1,e:"Nominal = real × price level, so falling prices can offset higher output."},
+{t:"L3",q:"If nominal GDP is $24,000 and the deflator is 120, real GDP is:",o:["$20,000","$28,800","$2,000","$22,800"],a:0,e:"24,000/1.20 = $20,000."},
+{t:"L3",q:"If real GDP is $10,000 and the deflator is 110, nominal GDP is:",o:["$9,090","$11,000","$10,110","$1,100"],a:1,e:"10,000 × 1.10 = $11,000."},
+{t:"L3",q:"Real GDP rises 5% and the deflator rises 2%. Nominal GDP rises about:",o:["3%","7%","10%","2.5%"],a:1,e:"Nominal growth ≈ 5 + 2 = 7%."},
+{t:"L3",q:"Nominal GDP rises 10% and the deflator rises 4%. Real GDP rises about:",o:["14%","6%","5.8%","2.5%"],a:2,e:"1.10/1.04 = 1.0577, about 5.8%."},
+{t:"L3",q:"The CPI fixes quantities to compare prices, while real GDP:",o:["Fixes prices to compare quantities","Fixes quantities to compare prices","Uses current prices","Ignores quantities"],a:0,e:"Real GDP holds prices fixed and lets quantities vary."},
+{t:"L3",q:"A country's output is unchanged but all its prices fall. Real GDP:",o:["Falls","Is unchanged","Rises","Doubles"],a:1,e:"Real GDP depends on quantities at fixed prices."},
+{t:"L3",q:"Which statement about the GDP deflator is correct?",o:["It is an inflation rate","It is an index level with the base year at 100%","It equals the CPI","It includes imports"],a:1,e:"You must take its percentage change to get inflation."},
+{t:"L3",q:"A price increase with no change in quantities leaves:",o:["Real GDP unchanged but nominal GDP higher","Both unchanged","Nominal GDP unchanged","Real GDP higher"],a:0,e:"Only the nominal value responds to prices."},
+{t:"L3",q:"GDP measured in current dollars is:",o:["Real GDP","Nominal GDP","The GDP deflator","Potential output"],a:1,e:"Current-dollar value is the nominal measure."},
+{t:"L3",q:"If nominal GDP rises 8% and real GDP rises 8%, the deflator:",o:["Rises 8%","Is unchanged","Falls 8%","Rises 16%"],a:1,e:"Equal growth leaves the ratio unchanged."},
+{t:"L3",q:"Real GDP is the better measure for comparing:",o:["Price levels across countries","The volume of production over time","Inflation rates","Interest rates"],a:1,e:"Real GDP strips out price changes to show output volume."},
+{t:"L3",q:"If the GDP deflator rises from 100 to 105, the price level of domestic output has:",o:["Fallen 5%","Risen 5%","Stayed the same","Risen 105%"],a:1,e:"Five index points from a base of 100 is a 5% rise."},
+{t:"L3",q:"A country's real GDP grows 3% while its population grows 5%. Output per person:",o:["Rises","Falls","Is unchanged","Doubles"],a:1,e:"Output grows more slowly than population, so per-person output falls."},
+{t:"L3",q:"Which is true in the base year?",o:["Nominal GDP exceeds real GDP","The deflator equals 100%","Real GDP is zero","The CPI equals zero"],a:1,e:"Base-year prices make the deflator 100%."},
+
+/* ==================== LECTURE 3 — GDP AND WELL-BEING ==================== */
+{t:"L3",q:"Two countries have identical real GDP per head, but one has much more free time. GDP:",o:["Captures this difference","Does not capture differences in leisure time","Rises with leisure","Falls with leisure"],a:1,e:"Leisure is one of the well-being dimensions GDP ignores."},
+{t:"L3",q:"A parent stays home to care for children instead of hiring a nanny. Measured GDP:",o:["Rises","Falls, because a paid service is replaced by unpaid work","Is unchanged","Doubles"],a:1,e:"Nonmarket household production is outside GDP, so measured output falls."},
+{t:"L3",q:"A factory expands output but heavily pollutes a river. GDP:",o:["Falls to reflect the pollution","Rises without fully capturing the environmental cost","Is unchanged","Is unaffected by output"],a:1,e:"Environmental quality and resource depletion are not fully described by output figures."},
+{t:"L3",q:"A country's GDP is high but income is concentrated among a few people. GDP:",o:["Reveals this inequality","Does not show how income is distributed","Falls automatically","Equals GDP per head"],a:1,e:"Aggregate output says nothing about distribution."},
+{t:"L3",q:"Working longer hours raises GDP but:",o:["Increases leisure","Reduces leisure time","Has no welfare trade-off","Reduces output"],a:1,e:"More hours raise measured output but reduce free time."},
+{t:"L3",q:"Volunteering at a charity is:",o:["Included in GDP","Outside measured GDP","Counted as investment","Counted as government purchases"],a:1,e:"Unpaid nonmarket activity is not in GDP."},
+{t:"L3",q:"Which is NOT a limitation of GDP mentioned in the lecture?",o:["Leisure time","Nonmarket activities","Environmental quality","Market valuation of output"],a:3,e:"Market value is part of the GDP definition, not a limitation."},
+{t:"L3",q:"Real GDP measures:",o:["The physical volume of production","The distribution of income","Environmental quality","Leisure time"],a:0,e:"Real GDP is a volume measure at fixed prices."},
+{t:"L3",q:"A country with high GDP per head could still have low well-being because:",o:["GDP ignores leisure, environment and inequality","GDP is measured in dollars","GDP includes services","GDP is always real"],a:0,e:"The lecture lists these as gaps in GDP as a welfare measure."},
+{t:"L3",q:"Cooking at home rather than eating out causes measured GDP to:",o:["Rise","Fall, since a market service becomes nonmarket production","Stay the same","Double"],a:1,e:"The restaurant meal was counted; the home-cooked meal is not."}
 ];
 
 /* ================= RENDER ================= */
@@ -1094,12 +430,9 @@ function card(q,i){
   const d=document.createElement('div');
   d.className='qcard';
   d.dataset.topic=q.t;
-  d.dataset.trap=q.k==='T'?'1':'0';
 
   const head=document.createElement('div'); head.className='qhead';
   head.innerHTML='<span class="qnum">Q'+(i+1)+'</span><span class="qtag '+q.t+'">'+q.t+'</span>';
-  if(q.k==='T') head.insertAdjacentHTML('beforeend','<span class="qtag T">TRAP</span>');
-  if(q.k==='S') head.insertAdjacentHTML('beforeend','<span class="qtag T" style="background:#e0f2fe;color:#0369a1">SCENARIO</span>');
   const tx=document.createElement('div'); tx.className='qtext'; tx.textContent=q.q;
   head.appendChild(tx); d.appendChild(head);
 
@@ -1146,10 +479,7 @@ document.querySelectorAll('.filters button').forEach(b=>{
     b.classList.add('active');
     const f=b.dataset.f;
     document.querySelectorAll('.qcard').forEach(c=>{
-      const show = f==='all' ? true
-                 : f==='T'   ? c.dataset.trap==='1'
-                 : c.dataset.topic===f;
-      c.classList.toggle('hidden', !show);
+      c.classList.toggle('hidden', f!=='all' && c.dataset.topic!==f);
     });
     window.scrollTo({top:0,behavior:'smooth'});
   });
